@@ -1,11 +1,11 @@
 [
   {
-    "sku": "TS001",
-    "name": "ເສື້ອຍືດຄອກົມ Classic",
-    "category": "ເສື້ອຍືດ",
-    "price": 75000,
-    "sizes": ["S", "M", "L", "XL"],
-    "colors": ["ຂາວ", "ດຳ", "ເທົາ", "ຟ້າ"],
+    "sku": "G97",
+    "name": "ໂສ້ງ G97 (ລຸ້ນຖົງເຈາະ - ຊິບໜ້າ)",
+    "category": "ສົ້ງ",
+    "price": 198000,
+    "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL", "7XL"],
+    "colors": ["ດຳ", "ເທົາເຂັ້ມ", "ເທົາອ່ອນ", "ເທົາຟ້າ", "ໂກໂກ້", "ຄີມ"],
     "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
     "images": [
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
