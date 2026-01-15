@@ -109,7 +109,7 @@ function renderProducts() {
                 
                 <div class="product-actions">
                     <span class="btn-detail">
-                        <i class="fas fa-info-circle"></i> รายละเอียด
+                        <i class="fas fa-info-circle"></i> ຄລິກເບິ່ງລາຍລະອຽດ
                     </span>
                 </div>
             </div>

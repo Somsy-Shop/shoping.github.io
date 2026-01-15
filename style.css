@@ -4,6 +4,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face {
+    font-family: 'TikTokLao';
+    /* src: url('fonts/Kom-Regular.ttf') format('truetype'); */
+      src: url('fonts/Touk2-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 :root {
     --primary-white: #ffffff;
@@ -18,9 +26,11 @@
     --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.05);
     --transition: all 0.3s ease;
 }
-
+*{
+     font-family: 'TikTokLao';
+}
 body {
-    font-family: 'Inter', 'Noto Sans Thai', sans-serif;
+   
     background-color: var(--light-gray);
     color: var(--dark-gray);
     line-height: 1.6;
