@@ -265,7 +265,7 @@ function renderProductDetail() {
                     <div class="detail-category">${currentProduct.category}</div>
                     <h1 class="detail-name">${currentProduct.name}</h1>
                     <div class="detail-price">${formatPrice(currentProduct.price)}</div>
-                    <div class="detail-sku">SKU: ${currentProduct.sku}</div>
+                    <div class="detail-sku">SKU: <span  style="color: blue;">${currentProduct.sku}</span> </div>
                     
                     <p class="detail-description">${currentProduct.description}</p>
                     
