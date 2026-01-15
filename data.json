@@ -6,10 +6,11 @@
     "price": 198000,
     "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL", "7XL"],
     "colors": ["ດຳ", "ເທົາເຂັ້ມ", "ເທົາອ່ອນ", "ເທົາຟ້າ", "ໂກໂກ້", "ຄີມ"],
-    "image": "img/IMG_8280.jpeg",
+    "image": "img/IMG_3027.jpeg",
     "images": [
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop",
-      "img/IMG_8280.jpeg"
+      "img/IMG_3027.jpeg",
+      "img/IMG_8280.jpeg",
+       "img/IMG_1351.jpeg"
     ],
     "description": "ໂສ້ງລຸ້ນຖົງເຈາະ ຊິບໜ້າ ຜ້າຟໍຣ່າ ຮອງຮັບສາວອວບ ແອວໄດ້ເຖິງ 42-43ນິ້ວ (ແທກຕາມແອວສູງກາຍສະບື 2ນິ້ວ)"
   }
