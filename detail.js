@@ -35,15 +35,19 @@ function createNotification() {
 }
 
 // สร้างแกลเลอรี่รูปภาพ
+// --- ສ່ວນທີ່ປັບປຸງໃນ Logic Gallery ---
+
 function createImageGallery(images) {
-    totalImages = images.length;
+    // ຈຳກັດຮູບບໍ່ໃຫ້ເກີນ 8 ຮູບ (ຖ້າມີເກີນຈະຕັດອອກ)
+    const displayImages = images.slice(0, 8);
+    totalImages = displayImages.length;
     currentImageIndex = 0;
     
     return `
         <div class="image-gallery">
             <div class="main-image-container">
-                <img id="main-image" class="main-image" src="${images[0]}" alt="Product Image" onclick="openZoomView(${currentImageIndex})">
-                ${images.length > 1 ? `
+                <img id="main-image" class="main-image" src="${displayImages[0]}" alt="Product Image" onclick="openZoomView(${currentImageIndex})">
+                ${displayImages.length > 1 ? `
                     <button class="image-nav-btn prev-btn" onclick="changeImage(-1)" id="prev-btn">
                         <i class="fas fa-chevron-left"></i>
                     </button>
@@ -51,38 +55,68 @@ function createImageGallery(images) {
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 ` : ''}
-                <div class="image-counter">${currentImageIndex + 1} / ${images.length}</div>
+                <div class="image-counter">${currentImageIndex + 1} / ${displayImages.length}</div>
             </div>
             
-            ${images.length > 1 ? `
-                <div class="thumbnail-container">
-                    ${images.map((img, index) => `
-                        <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="selectImage(${index})" data-index="${index}">
-                            <img src="${img}" alt="Thumbnail ${index + 1}">
-                            <div class="image-counter">${index + 1}</div>
+            ${displayImages.length > 1 ? `
+                <div class="thumbnail-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px;">
+                    ${displayImages.map((img, index) => `
+                        <div class="thumbnail ${index === 0 ? 'active' : ''}" 
+                             onclick="selectImage(${index})" 
+                             data-index="${index}"
+                             style="aspect-ratio: 1/1; overflow: hidden; border-radius: 4px; cursor: pointer; border: 2px solid transparent;">
+                            <img src="${img}" alt="Thumbnail ${index + 1}" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     `).join('')}
                 </div>
             ` : ''}
         </div>
         
-        <!-- Zoom Overlay -->
         <div class="zoom-overlay" id="zoom-overlay">
             <button class="close-zoom" onclick="closeZoomView()">&times;</button>
             <img class="zoom-image" id="zoom-image" src="" alt="Zoomed Image">
-            ${images.length > 1 ? `
+            ${displayImages.length > 1 ? `
                 <button class="zoom-nav-btn zoom-prev-btn" onclick="changeZoomImage(-1)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 <button class="zoom-nav-btn zoom-next-btn" onclick="changeZoomImage(1)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
-                <div class="image-counter-zoom" id="zoom-counter">1 / ${images.length}</div>
+                <div class="image-counter-zoom" id="zoom-counter">1 / ${displayImages.length}</div>
             ` : ''}
         </div>
     `;
 }
 
+// ປັບປຸງ Function selectImage ໃຫ້ຮອງຮັບການປ່ຽນຮູບ Zoom ໄດ້ພ້ອມ
+function selectImage(index) {
+    if (index < 0 || index >= totalImages) return;
+    currentImageIndex = index;
+    
+    const mainImage = document.getElementById('main-image');
+    const zoomImage = document.getElementById('zoom-image'); // ເພີ່ມການອັບເດດຮູບຊູມ
+    
+    if (mainImage && currentProduct && currentProduct.images) {
+        const targetImg = currentProduct.images[currentImageIndex];
+        mainImage.src = targetImg;
+        if(zoomImage) zoomImage.src = targetImg;
+        
+        const imageCounter = document.querySelector('.main-image-container .image-counter');
+        const zoomCounter = document.getElementById('zoom-counter');
+        
+        if (imageCounter) imageCounter.textContent = `${currentImageIndex + 1} / ${totalImages}`;
+        if (zoomCounter) zoomCounter.textContent = `${currentImageIndex + 1} / ${totalImages}`;
+        
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        thumbnails.forEach((thumb, i) => {
+            thumb.classList.toggle('active', i === currentImageIndex);
+            // ປ່ຽນ Style ໃຫ້ເຫັນຊັດເຈນວ່າກຳລັງເລືອກຮູບໃດ
+            thumb.style.borderColor = (i === currentImageIndex) ? 'var(--primary-color, #ff4757)' : 'transparent';
+        });
+        
+        updateNavButtons();
+    }
+}
 // เปลี่ยนรูปหลักในแกลเลอรี่
 function changeImage(direction) {
     const newIndex = (currentImageIndex + direction + totalImages) % totalImages;
