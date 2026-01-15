@@ -44,7 +44,7 @@ body {
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     min-height: 100vh;
@@ -965,9 +965,9 @@ footer {
 }
 
 .nav-container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 20px;
+     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
