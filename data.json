@@ -6,12 +6,12 @@
     "price": 198000,
     "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL", "7XL"],
     "colors": ["ດຳ", "ເທົາເຂັ້ມ", "ເທົາອ່ອນ", "ເທົາຟ້າ", "ໂກໂກ້", "ຄີມ"],
-    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop",
     "images": [
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop"
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&h=800&fit=crop"
     ],
     "description": "ເສື້ອຍືດຄອກົມແບບຄລາສສິກ ເນື້ອຜ້າຄອດຕອນ 100% ນຸ່ງສະບາຍ ເໝາະກັບທຸກໂອກາດ"
   },
@@ -22,16 +22,15 @@
     "price": 125000,
     "sizes": ["M", "L", "XL", "XXL"],
     "colors": ["ດຳ", "ຟ້າ", "ຂຽວ", "ແດງ"],
-    "image": "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=400&h=500&fit=crop",
+    "image": "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=800&h=1000&fit=crop",
     "images": [
-      "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=400&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=500&fit=crop"
+      "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=800&h=1000&fit=crop",
+      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800&h=1000&fit=crop",
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&h=1000&fit=crop",
+      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&h=1000&fit=crop"
     ],
     "description": "ເສື້ອຍືດ Polo ດີໄຊຮຽບຫູ ເນື້ອຜ້າຄຸນນະພາບສູງ ຊັກແລ້ວບໍ່ຍືດບໍ່ຍ້ວຍ"
   },
-
   { 
     "sku": "PN003",
     "name": "ສົ້ງວອມສະປອດ",
@@ -39,12 +38,12 @@
     "price": 92000,
     "sizes": ["S", "M", "L", "XL"],
     "colors": ["ດຳ", "ເທົາ", "ຟ້າເຂັ້ມ"],
-    "image": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400&h=400&fit=crop",
+    "image": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&h=800&fit=crop",
     "images": [
-      "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop"
+      "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1542272604-787c3835535d?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=800&fit=crop"
     ],
     "description": "ສົ້ງວອມນຸ່ງສະບາຍ ເໝາະສຳລັບການອອກກຳລັງກາຍ ແລະ ນຸ່ງໃນຊີວິດປະຈຳວັນ"
   }

@@ -1,34 +1,13 @@
 <!DOCTYPE html>
-<html lang="lo">
-
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog | ร้านเสื้อผ้าออนไลน์</title>
     <link rel="stylesheet" href="style.css">
-   
-    <title>ສົ້ມໂອ - ຮ້ານຂາຍເສື້ອຜ້າແຟຊັນ</title>
-    <meta name="title" content="ຮ້ານສົ້ມໂອ - ຂາຍເສື້ອຜ້າແຟຊັນ">
-    <meta name="description" content="ລາຍລະອຽດຮ້ານຂອງທ່ານ ເຊັ່ນ: ຂາຍເສື້ອຜ້າລາຄາຖືກ ມີລະຫັດ CF ພ້ອມສົ່ງ">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pharn001.github.io/portfolio.github.io/">
-    <meta property="og:title" content="ຮ້ານສົ້ມໂອ - ຂາຍເສື້ອຜ້າແຟຊັນ">
-    <meta property="og:description" content="ຈຳໜ່າຍເສື້ອຜ້າແຟຊັນຄຸນນະພາບດີ ລະຫັດ CF ຊັດເຈນ ຈັດສົ່ງໄວ">
-    <meta property="og:image" content="https://pharn001.github.io/portfolio.github.io/0193.jpg">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://pharn001.github.io/portfolio.github.io/">
-    <meta property="twitter:title" content="ຮ້ານສົ້ມໂອ - ຂາຍເສື້ອຜ້າແຟຊັນ">
-    <meta property="twitter:description" content="ຈຳໜ່າຍເສື້ອຜ້າແຟຊັນຄຸນນະພາບດີ ລະຫັດ CF ຊັດເຈນ ຈັດສົ່ງໄວ">
-    <meta property="twitter:image" content="https://pharn001.github.io/portfolio.github.io/0193.jpg">
-
-
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <div class="container">
         <header>
@@ -36,21 +15,22 @@
                 <i class="fas fa-tshirt"></i>
                 <h1>𝐒'𝐒𝐨𝐦 𝐒𝐨𝐦𝐬𝐲 ເສື້ອຜ້າ - ເຄື່ອງໃຊ້</h1>
             </div>
-            <p class="tagline">ເສື້ອຜ້າແຟຊັນສະໄຕລ໌ມິນິມອນ ຮຽບຫູ ສວມໃສ່ສະບາຍ</p>
+            <p class="tagline">เสื้อผ้าแฟชั่นสไตล์มินิมอล เรียบหรู สวมใส่สบาย</p>
         </header>
 
         <main>
             <section class="filters-section">
                 <div class="search-container">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="search-input" placeholder="ຄົ້ນຫາຈາກຊື່ສິນຄ້າ ຫຼື ລະຫັດ SKU...">
+                    <input type="text" id="search-input" placeholder="ຄົ້ນຫາຈາກຊື່ສິນຄ້າຫຼືລະຫັດ SKU...">
                 </div>
-
+                
                 <div class="filter-controls">
                     <div class="category-filter">
-                        <h3>ໝວດໝູ່ສິນຄ້າທັງໝົດ:</h3>
-                        <div class="category-buttons" >
-                            <button class="category-btn active" data-category="ທັງໝົດ">ທັງໝົດ</button>
+                        <h3>ໝວດຫມູ່ສິນຄ້າ:</h3>
+                        <div class="category-buttons" id="category-buttons">
+                            <!-- ปุ่มหมวดหมู่จะถูกสร้างโดย JavaScript -->
+                            <button class="category-btn active" data-category="ທັງໝົດ">ທັງຫມົດ</button>
                         </div>
                     </div>
                 </div>
@@ -58,13 +38,14 @@
 
             <section class="products-section">
                 <div class="products-header">
-                    <h2>ສິນຄ້າທັງໝົດ</h2>
+                    <h2>ສິນຄ້າທັງຫມົດ</h2>
                     <div class="products-count">
-                        <span id="product-count">0</span> ລາຍການ
+                        <span id="product-count">0</span> ສິນຄ້າ
                     </div>
                 </div>
-
+                
                 <div class="products-grid" id="products-grid">
+                    <!-- ผลิตภัณฑ์จะถูกแสดงที่นี่โดย JavaScript -->
                     <div class="loading">
                         <i class="fas fa-spinner fa-spin"></i>
                         <p>ກຳລັງໂຫລດສິນຄ້າ...</p>
@@ -74,25 +55,10 @@
         </main>
 
         <footer>
-            <p>© 2023 Minimal Clothing - ແບບລາຍການສິນຄ້າ Single Page</p>
-            <p class="footer-note">*ລິ້ງສຳລັບສັ່ງຊື້ສາມາດກຳນົດໄດ້ໃນໄຟລ໌ script.js</p>
+            <p>© 2026 𝐒'𝐒𝐨𝐦 𝐒𝐨𝐦𝐬𝐲 ເສື້ອຜ້າ - ເຄື່ອງໃຊ້ - Product Catalog Single Page</p>
         </footer>
-    </div>
-
-    <div class="modal" id="product-modal">
-        <div class="modal-content">
-            <button class="close-modal" id="close-modal">&times;</button>
-            <div class="modal-body" id="modal-body">
-                </div>
-        </div>
-    </div>
-
-    <div class="notification" id="notification">
-        <i class="fas fa-check-circle"></i>
-        <span id="notification-text">ກັອບປີ້ລະຫັດ SKU ສຳເລັດແລ້ວ!</span>
     </div>
 
     <script src="script.js"></script>
 </body>
-
 </html>
