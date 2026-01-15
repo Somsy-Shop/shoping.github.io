@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+   
+    <title>ສົ້ມໂອ - ຮ້າຍຂາຍເສື້ອຜ້າແຟຊັ້ນ</title>
+    <meta name="title" content="ຮ້ານສົ້ມໂອ - ขายเสื้อผ้าแฟชั่น">
+    <meta name="description" content="คำอธิบายร้านของคุณ เช่น ขายเสื้อผ้าราคาถูก มีรหัส CF พร้อมส่ง">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pharn001.github.io/portfolio.github.io/">
+    <meta property="og:title" content="ຮ້ານສົ້ມໂອ - ขายเสื้อผ้าแฟชั่น">
+    <meta property="og:description" content="จำหน่ายเสื้อผ้าแฟชั่นคุณภาพดี รหัส CF ชัดเจน จัดส่งไว">
+    <meta property="og:image" content="https://pharn001.github.io/portfolio.github.io/0193.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pharn001.github.io/portfolio.github.io/">
+    <meta property="twitter:title" content="ຮ້ານສົ້ມໂອ - ขายเสื้อผ้าแฟชั่น">
+    <meta property="twitter:description" content="จำหน่ายเสื้อผ้าแฟชั่นคุณภาพดี รหัส CF ชัดเจน จัดส่งไว">
+    <meta property="twitter:image" content="https://pharn001.github.io/portfolio.github.io/0193.jpg">
+
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-tshirt"></i>
+                <h1>Minimal Clothing</h1>
+            </div>
+            <p class="tagline">เสื้อผ้าแฟชั่นสไตล์มินิมอล เรียบหรู สวมใส่สบาย</p>
+        </header>
+
+        <main>
+            <section class="filters-section">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="ค้นหาจากชื่อสินค้าหรือรหัส SKU...">
+                </div>
+
+                <div class="filter-controls">
+                    <div class="category-filter">
+                        <h3>หมวดหมู่สินค้า:</h3>
+                        <div class="category-buttons">
+                            <button class="category-btn active" data-category="ทั้งหมด">ทั้งหมด</button>
+                            <button class="category-btn" data-category="เสื้อยืด">เสื้อยืด</button>
+                            <button class="category-btn" data-category="กางเกง">กางเกง</button>
+                            <button class="category-btn" data-category="แจ็คเก็ต">แจ็คเก็ต</button>
+                            <button class="category-btn" data-category="เสื้อเชิ้ต">เสื้อเชิ้ต</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="products-section">
+                <div class="products-header">
+                    <h2>สินค้าทั้งหมด</h2>
+                    <div class="products-count">
+                        <span id="product-count">0</span> สินค้า
+                    </div>
+                </div>
+
+                <div class="products-grid" id="products-grid">
+                    <!-- ผลิตภัณฑ์จะถูกแสดงที่นี่โดย JavaScript -->
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>กำลังโหลดสินค้า...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2023 Minimal Clothing - Product Catalog Single Page</p>
+            <p class="footer-note">*ลิงก์สำหรับสั่งซื้อสามารถกำหนดในไฟล์ script.js</p>
+        </footer>
+    </div>
+
+    <!-- Modal สำหรับแสดงรายละเอียดสินค้า -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <div class="modal-body" id="modal-body">
+                <!-- รายละเอียดสินค้าจะถูกเพิ่มที่นี่โดย JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification สำหรับการคัดลอก SKU -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-text">คัดลอก SKU เรียบร้อยแล้ว!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
