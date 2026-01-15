@@ -118,7 +118,7 @@ function renderProducts() {
                 <p class="product-description">${product.description.substring(0, 80)}${product.description.length > 80 ? '...' : ''}</p>
                 
                 <div class="product-details">
-                    <div class="product-price">฿${product.price.toLocaleString()}</div>
+                    <div class="product-price">${product.price.toLocaleString()} ກີບ</div>
                     <div class="product-sku">SKU: ${product.sku}</div>
                 </div>
                 
@@ -276,7 +276,7 @@ function showProductDetail(sku) {
             <div class="modal-product-info">
                 <h2>${product.name}</h2>
                 <div class="modal-product-category">${product.category}</div>
-                <div class="modal-product-price">฿${product.price.toLocaleString()}</div>
+                <div class="modal-product-price">${product.price.toLocaleString()} ກີບ</div>
                 <div class="modal-product-sku">SKU: ${product.sku}</div>
                 <p class="modal-product-description">${product.description}</p>
                 
