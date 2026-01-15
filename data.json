@@ -6,7 +6,7 @@
     "price": 198000,
     "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL", "7XL"],
     "colors": ["ດຳ", "ເທົາເຂັ້ມ", "ເທົາອ່ອນ", "ເທົາຟ້າ", "ໂກໂກ້", "ຄີມ"],
-    "image": "IMG_8280.jpeg",
+    "image": "img/IMG_8280.jpeg",
     "images": [
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop",
       "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=800&h=800&fit=crop",
