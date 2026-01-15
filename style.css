@@ -11,6 +11,13 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'KomLao';
+    src: url('fonts/Kom-Regular.ttf') format('truetype');
+    
+    font-weight: normal;
+    font-style: normal;
+}
 
 
 :root {
@@ -125,7 +132,7 @@ header {
     border: 1px solid var(--border-gray);
     border-radius: 10px;
     font-size: 1rem;
-    font-family: 'Noto Sans Thai', sans-serif;
+    
     transition: var(--transition);
     background-color: var(--light-gray);
 }
@@ -156,7 +163,7 @@ header {
     background-color: var(--primary-white);
     border-radius: 8px;
     cursor: pointer;
-    font-family: 'Noto Sans Thai', sans-serif;
+    font-family: 'KomLao';
     font-weight: 500;
     transition: var(--transition);
     color: var(--dark-gray);
@@ -321,8 +328,7 @@ header {
     background-color: var(--light-gray);
     border: 1px solid var(--border-gray);
     border-radius: 6px;
-    color: var(--dark-gray);
-    font-family: 'Noto Sans Thai', sans-serif;
+    color: blue;
     font-weight: 500;
     cursor: pointer;
     transition: var(--transition);
@@ -344,7 +350,7 @@ header {
     border: none;
     border-radius: 6px;
     color: var(--primary-white);
-    font-family: 'Noto Sans Thai', sans-serif;
+
     font-weight: 500;
     cursor: pointer;
     transition: var(--transition);
@@ -470,7 +476,6 @@ header {
     border: 1px solid var(--border-gray);
     border-radius: 8px;
     color: var(--dark-gray);
-    font-family: 'Noto Sans Thai', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
@@ -493,7 +498,6 @@ header {
     border: none;
     border-radius: 8px;
     color: var(--primary-white);
-    font-family: 'Noto Sans Thai', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
