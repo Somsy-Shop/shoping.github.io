@@ -271,14 +271,14 @@ function renderProductDetail() {
                     
                     <div class="detail-specs-grid">
                         <div class="spec-card">
-                            <h4><i class="fas fa-ruler"></i> ຂະໜາດທີ່ຮອງຮັບ</h4>
+                            <h4><i class="fas fa-ruler"></i>Size (ຂະຫນາດ)</h4>
                             <div class="sizes-container">
                                 ${currentProduct.sizes.map(size => `<span class="size-item">${size}</span>`).join('')}
                             </div>
                         </div>
                         
                         <div class="spec-card">
-                            <h4><i class="fas fa-palette"></i> ສີທີ່ຮອງຮັບ</h4>
+                            <h4><i class="fas fa-palette"></i> ສີທີມີ</h4>
                             <div class="colors-container">
                                 ${currentProduct.colors.map(color => `<span class="color-item">${color}</span>`).join('')}
                             </div>
