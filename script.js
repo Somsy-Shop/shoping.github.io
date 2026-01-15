@@ -8,8 +8,8 @@ const APP_CONFIG = {
 // ตัวแปร global
 let products = [];
 let filteredProducts = [];
-let activeCategory = "ทั้งหมด";
-let categories = []; // เก็บหมวดหมู่ทั้งหมด
+let activeCategory = "ທັງຫມົດ";
+let categories = []; // เก็บหมวดหมู่ທັງຫມົດ
 
 // DOM Elements
 const productsGrid = document.getElementById("products-grid");
@@ -28,10 +28,10 @@ async function loadProducts() {
         const response = await fetch('data.json');
         products = await response.json();
         
-        // แสดงสินค้าทั้งหมดเริ่มต้น
+        // แสดงสินค้าທັງຫມົດเริ่มต้น
         filteredProducts = [...products];
         
-        // ดึงหมวดหมู่ทั้งหมดจากข้อมูลสินค้า
+        // ดึงหมวดหมู่ທັງຫມົດจากข้อมูลสินค้า
         extractCategories();
         
         // สร้างปุ่มหมวดหมู่แบบไดนามิก
@@ -52,13 +52,13 @@ async function loadProducts() {
     }
 }
 
-// ดึงหมวดหมู่ทั้งหมดจากข้อมูลสินค้า
+// ดึงหมวดหมู่ທັງຫມົດจากข้อมูลสินค้า
 function extractCategories() {
     // ใช้ Set เพื่อให้ได้หมวดหมู่ที่ไม่ซ้ำกัน
     const uniqueCategories = new Set();
     
-    // เพิ่มหมวดหมู่ "ทั้งหมด" เป็นตัวแรก
-    categories = ["ทั้งหมด"];
+    // เพิ่มหมวดหมู่ "ທັງຫມົດ" เป็นตัวแรก
+    categories = ["ທັງຫມົດ"];
     
     // ดึงหมวดหมู่จากสินค้าทุกตัว
     products.forEach(product => {
@@ -68,9 +68,9 @@ function extractCategories() {
         }
     });
     
-    // เรียงลำดับหมวดหมู่ (ไม่รวม "ทั้งหมด")
+    // เรียงลำดับหมวดหมู่ (ไม่รวม "ທັງຫມົດ")
     const sortedCategories = Array.from(uniqueCategories).sort();
-    categories = ["ทั้งหมด", ...sortedCategories];
+    categories = ["ທັງຫມົດ", ...sortedCategories];
 }
 
 // สร้างปุ่มหมวดหมู่แบบไดนามิก
@@ -81,7 +81,7 @@ function renderCategoryButtons() {
     // สร้างปุ่มหมวดหมู่ใหม่จาก categories
     categories.forEach(category => {
         const button = document.createElement('button');
-        button.className = `category-btn ${category === "ทั้งหมด" ? "active" : ""}`;
+        button.className = `category-btn ${category === "ທັງຫມົດ" ? "active" : ""}`;
         button.dataset.category = category;
         button.textContent = category;
         
@@ -100,15 +100,15 @@ function renderProducts() {
         productsGrid.innerHTML = `
             <div class="no-products" style="grid-column: 1 / -1; text-align: center; padding: 50px;">
                 <i class="fas fa-search" style="font-size: 3rem; color: #ccc; margin-bottom: 15px;"></i>
-                <h3>ไม่พบสินค้าที่ค้นหา</h3>
-                <p>ลองเปลี่ยนคำค้นหาหรือหมวดหมู่ดูนะครับ</p>
+                <h3>ບໍ່ເຫັນສິນຄ້າທີ່ກຳລັງຫາ</h3>
+                <p>ລອງປ່ຽນຄຳຄົ້ນຫາຫຼືຫມວດຫມູ່ເບິ່ງເດີເຈົ້າ</p>
             </div>
         `;
         return;
     }
     
     productsGrid.innerHTML = filteredProducts.map(product => `
-        <div class="product-card" data-sku="${product.sku}">
+        <div class="product-card" data-sku="${product.sku}" ondblclick="showProductDetail('${product.sku}')">
             <div class="product-image">
                 <img src="${product.image}" alt="${product.name}" loading="lazy">
             </div>
@@ -124,10 +124,10 @@ function renderProducts() {
                 
                 <div class="product-actions">
                     <button class="btn-detail" onclick="showProductDetail('${product.sku}')">
-                        <i class="fas fa-info-circle"></i> รายละเอียด
+                        <i class="fas fa-info-circle"></i> ລາຍລະອຽດ
                     </button>
                     <button class="btn-order" onclick="handleOrder('${product.sku}', '${product.name}')">
-                        <i class="fas fa-shopping-cart"></i> สั่งซื้อ
+                        <i class="fas fa-shopping-cart"></i> ສັ່ງຊື້
                     </button>
                 </div>
             </div>
@@ -175,7 +175,7 @@ function filterByCategory(category) {
     });
     
     // กรองสินค้า
-    if (category === "ทั้งหมด") {
+    if (category === "ທັງຫມົດ") {
         filteredProducts = [...products];
     } else {
         filteredProducts = products.filter(product => product.category === category);
@@ -194,6 +194,74 @@ function filterByCategory(category) {
     updateProductCount();
 }
 
+// สร้างแกลเลอรีรูปภาพ
+function createImageGallery(images) {
+    currentImageIndex = 0;
+    
+    // สร้าง thumbnail จาก 4 รูปแรก หรือตามที่มี
+    const displayImages = images.slice(0, 4);
+    
+    return `
+        <div class="image-gallery">
+            <div class="main-image-container">
+                <img id="main-image" class="main-image" src="${displayImages[0]}" alt="Product Image">
+                ${displayImages.length > 1 ? `
+                    <button class="image-nav-btn prev-btn" onclick="changeImage(-1, ${displayImages.length})">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="image-nav-btn next-btn" onclick="changeImage(1, ${displayImages.length})">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                ` : ''}
+            </div>
+            
+            <div class="thumbnail-container">
+                ${displayImages.map((img, index) => `
+                    <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="selectImage(${index}, ${displayImages.length})">
+                        <img src="${img}" alt="Thumbnail ${index + 1}">
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+// เปลี่ยนรูปหลักในแกลเลอรี
+function changeImage(direction, totalImages) {
+    currentImageIndex = (currentImageIndex + direction + totalImages) % totalImages;
+    updateGallery();
+}
+
+// เลือกรูปจาก thumbnail
+function selectImage(index, totalImages) {
+    currentImageIndex = index;
+    updateGallery();
+}
+
+// อัปเดตแกลเลอรี
+function updateGallery() {
+    const mainImage = document.getElementById('main-image');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    
+    if (mainImage) {
+        const currentProduct = document.querySelector('.modal-product');
+        if (currentProduct) {
+            const productImages = currentProduct.dataset.images ? JSON.parse(currentProduct.dataset.images) : [];
+            if (productImages.length > 0) {
+                mainImage.src = productImages[currentImageIndex];
+                
+                // อัปเดต thumbnail ที่ active
+                thumbnails.forEach((thumb, index) => {
+                    if (index === currentImageIndex) {
+                        thumb.classList.add('active');
+                    } else {
+                        thumb.classList.remove('active');
+                    }
+                });
+            }
+        }
+    }
+}
 // แสดงรายละเอียดสินค้าใน modal
 function showProductDetail(sku) {
     const product = products.find(p => p.sku === sku);
@@ -201,9 +269,9 @@ function showProductDetail(sku) {
     if (!product) return;
     
     modalBody.innerHTML = `
-        <div class="modal-product">
+        <div class="modal-product" data-images='${JSON.stringify(product.images)}'>
             <div class="modal-product-image">
-                <img src="${product.image}" alt="${product.name}">
+                ${createImageGallery(product.images)}
             </div>
             <div class="modal-product-info">
                 <h2>${product.name}</h2>
@@ -213,12 +281,12 @@ function showProductDetail(sku) {
                 <p class="modal-product-description">${product.description}</p>
                 
                 <div class="modal-details">
-                    <h3>ไซส์ที่รองรับ</h3>
+                    <h3>ຂະໜາດທີ່ຮອງຮັບ(size)</h3>
                     <div class="sizes-container">
                         ${product.sizes.map(size => `<span class="size-item">${size}</span>`).join('')}
                     </div>
                     
-                    <h3>สีที่รองรับ</h3>
+                    <h3>ສີທີ່ຮອງຮັບ</h3>
                     <div class="colors-container">
                         ${product.colors.map(color => `<span class="color-item">${color}</span>`).join('')}
                     </div>
@@ -226,7 +294,7 @@ function showProductDetail(sku) {
                 
                 <div class="modal-actions">
                     <button class="btn-modal-order" onclick="handleOrder('${product.sku}', '${product.name}')">
-                        <i class="fas fa-shopping-cart"></i> สั่งซื้อผ่าน LINE
+                        <i class="fas fa-shopping-cart"></i> ສັ່ງຊື້ຜ່ານ LINE
                     </button>
                 </div>
             </div>
@@ -234,8 +302,10 @@ function showProductDetail(sku) {
     `;
     
     productModal.style.display = "flex";
-    document.body.style.overflow = "hidden"; // ป้องกันการสกรอลหน้าเว็บ
+    document.body.style.overflow = "hidden";
 }
+
+
 
 // จัดการการสั่งซื้อ
 function handleOrder(sku, productName) {
