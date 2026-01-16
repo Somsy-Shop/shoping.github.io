@@ -1,5 +1,6 @@
+<!-- product.html -->
 <!DOCTYPE html>
-<html lang="th">
+<html lang="lo">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +24,6 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link">ໜ້າຫຼັກ</a></li>
                 <li><a href="product.html" class="nav-link active">ສິນຄ້າ</a></li>
-                <li><a href="about.html" class="nav-link">ກ່ຽວກັບພວກເຮົາ</a></li>
                 <li><a href="contact.html" class="nav-link">ຕິດຕໍ່</a></li>
             </ul>
         </div>
@@ -52,8 +52,11 @@
                         <h3>ໝວດຫມູ່ສິນຄ້າ:</h3>
                         <div class="category-buttons" id="category-buttons">
                             <button class="category-btn active" data-category="all">ທັງຫມົດ</button>
+                            <!-- จะถูกเพิ่มโดย JavaScript -->
                         </div>
                     </div>
+                    
+                  
                 </div>
             </section>
 
@@ -62,7 +65,16 @@
                     <h2>ສິນຄ້າທັງຫມົດ</h2>
                     <div class="products-count">
                         <span id="product-count">0</span> ສິນຄ້າ
+                        <span id="filter-info"></span>
                     </div>
+                </div>
+                
+                <!-- เพิ่ม Filter Status -->
+                <div class="filter-status" id="filter-status" style="margin-bottom: 20px; padding: 10px; background: #f8f9fa; border-radius: 8px; display: none;">
+                    <span id="active-filter"></span>
+                    <button id="clear-filter" class="clear-filter-btn">
+                        <i class="fas fa-times"></i> ລ້າງຕົວກອງ
+                    </button>
                 </div>
                 
                 <div class="products-grid" id="products-grid">
@@ -71,15 +83,36 @@
                         <p>ກຳລັງໂຫລດສິນຄ້າ...</p>
                     </div>
                 </div>
+                
+                <!-- Pagination -->
+                <div class="pagination" id="pagination" style="display: none;">
+                    <button id="prev-page" class="page-btn">
+                        <i class="fas fa-chevron-left"></i> ກ່ອນໜ້າ
+                    </button>
+                    <div class="page-numbers" id="page-numbers"></div>
+                    <button id="next-page" class="page-btn">
+                        ຖັດໄປ <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </section>
         </main>
 
         <footer>
             <p>© 2026 𝐒'𝐒𝐨𝐦 𝐒𝐨𝐦𝐬𝐲 ເສື້ອຜ້າ - ເຄື່ອງໃຊ້ - Product Catalog Single Page</p>
+            <div class="footer-info">
+                <p><i class="fas fa-map-marker-alt"></i> ທີ່ຢູ່: ວຽງຈັນ, ລາວ</p>
+                <p><i class="fas fa-phone"></i> ໂທ: +856 20 XX XX XX</p>
+                <p><i class="fas fa-envelope"></i> ອີເມວ: info@somsy.com</p>
+            </div>
         </footer>
     </div>
 
- 
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-text"></span>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

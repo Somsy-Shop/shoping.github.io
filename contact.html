@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Profile Card - Responsive</title>
+    <title>ຕິດຕໍ່ - S' Som Somsy</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -22,13 +22,14 @@
             --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.05);
             --transition: all 0.3s ease;
         }
-@font-face {
-    font-family: 'TikTokLao';
-    /* src: url('fonts/Kom-Regular.ttf') format('truetype'); */
-      src: url('fonts/Touk2-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+        
+        @font-face {
+            font-family: 'TikTokLao';
+            src: url('fonts/Touk2-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         /* ===== Navbar Styles ===== */
         .navbar {
             position: fixed;
@@ -143,7 +144,7 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* ===== Original Styles ===== */
+        /* ===== Contact Page Styles ===== */
         body {
             font-family: 'TikTokLao';
             background-color: var(--light-gray);
@@ -218,8 +219,7 @@
             font-weight: 700;
         }
         
-        .pre-order-tag { 
-            font-style: italic; 
+        .page-subtitle { 
             font-size: 22px; 
             margin-bottom: 15px; 
             font-weight: bold; 
@@ -236,14 +236,14 @@
         .info-item {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             font-size: 19px;
             color: var(--dark-gray);
         }
 
         .info-item i {
-            width: 35px; 
-            height: 35px;
+            width: 45px; 
+            height: 45px;
             background-color: var(--dark-gray); 
             color: white;
             border-radius: 50%;
@@ -251,8 +251,49 @@
             justify-content: center; 
             align-items: center;
             margin-right: 15px; 
-            font-size: 16px;
+            font-size: 20px;
             flex-shrink: 0;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: var(--primary-black);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .account-info {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 5px;
+            border-left: 4px solid var(--dark-gray);
+            font-family: monospace;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--dark-gray);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 22px;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary-black);
         }
 
         /* --- Style ສໍາລັບມືຖື (Mobile) --- */
@@ -342,12 +383,12 @@
             }
 
             .content h1 {
-                font-size: 24px;
+                font-size: 28px;
             }
 
-            .pre-order-tag {
-                font-size: 16px;
-                margin-bottom: 5px;
+            .page-subtitle {
+                font-size: 18px;
+                margin-bottom: 10px;
             }
 
             .divider {
@@ -358,10 +399,18 @@
             .info-item {
                 font-size: 16px;
                 align-items: flex-start;
+                margin-bottom: 20px;
             }
             
-            .info-item span {
-                line-height: 1.4;
+            .info-item i {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            
+            .account-info {
+                font-size: 15px;
+                padding: 12px;
             }
         }
 
@@ -382,6 +431,10 @@
             .nav-menu {
                 width: 250px;
             }
+            
+            .content h1 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -390,9 +443,8 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">
+            <a href="index.html" class="nav-logo">
                 <i class="fas fa-tshirt"></i>
-           
                 𝐒'𝐒𝐨𝐦 𝐒𝐨𝐦𝐬𝐲
             </a>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
@@ -401,46 +453,77 @@
                 <div class="bar"></div>
             </button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#" class="nav-link active">ໜ້າຫຼັກ</a></li>
+                <li><a href="index.html" class="nav-link">ໜ້າຫຼັກ</a></li>
                 <li><a href="product.html" class="nav-link">ສິນຄ້າ</a></li>
-            
-                <li><a href="contact.html" class="nav-link">ຕິດຕໍ່</a></li>
+                <li><a href="contact.html" class="nav-link active">ຕິດຕໍ່</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Original Content -->
+    <!-- Contact Content -->
     <div class="card-container">
         <div class="decoration-circle">
             <div class="outer-border-circle">
                 <div class="header-mobile">
                     <div class="inner-circle">
-                        <img src="img/logo.jpg" alt="Shop Logo" class="logo-img" >
+                        <img src="img/logo.jpg" alt="Shop Logo" class="logo-img">
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="content">
-            <h1>ເສື້ອຜ້າ - ເຄື່ອງໃຊ້</h1>
-            <div class="pre-order-tag">PreOrder 5-7 days</div>
+            <h1>ຕິດຕໍ່ພວກເຮົາ</h1>
+            <div class="page-subtitle">ເພຈ: S' Som Somsy ເສື້ອຜ້າ-ເຄື່ອງໃຊ້</div>
             <div class="divider"></div>
 
             <div class="info-item">
-                <i class="fa-solid fa-phone"></i>
-                <span>020 54544564</span>
+                <i class="fab fa-facebook"></i>
+                <div>
+                    <span class="info-label">Facebook</span>
+                    <span>𝐒'𝐒𝐨𝐦 𝐒𝐨𝐦𝐬𝐲 𝐈𝐈</span>
+                </div>
             </div>
 
             <div class="info-item">
-                <i class="fa-solid fa-envelope"></i>
-                <span>Somsy Keobounphan / 162120001349363001(BCEL)</span>
+                <i class="fab fa-tiktok"></i>
+                <div>
+                    <span class="info-label">TikTok</span>
+                    <span>𝐒'𝐒𝐨𝐦 𝐒𝐨𝐦𝐬𝐲 𝐈𝐈</span>
+                </div>
             </div>
 
             <div class="info-item">
-                <i class="fa-solid fa-location-dot"></i>
-                <span>ບ້ານໂພນພະເນົາ, ເມືອງໄຊເສດຖາ, ນະຄອນຫຼວງວຽງຈັນ</span>
+                <i class="fab fa-whatsapp"></i>
+                <div>
+                    <span class="info-label">WhatsApp</span>
+                    <span>020 5454 4564</span>
+                </div>
             </div>
-            <button><a href="product.html">ສັ່ງຊື້ເລີຍ!</a></button>
+
+            <div class="info-item">
+                <i class="fas fa-university"></i>
+                <div>
+                    <span class="info-label">ບັນຊີເງິນຝາກ</span>
+                    <div class="account-info">
+                        ຊື່ບັນຊີ: 𝗦𝗼𝗺𝘀𝘆 𝗞𝗘𝗢𝗕𝗢𝗨𝗡𝗣𝗛𝗔𝗡<br>
+                        BCEL: 162 12 00 01349363 001<br>
+                        LDB: 0333 1004 1000 1213
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-link" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://wa.me/8562054544564" class="social-link" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
         </div>
     </div>
 
