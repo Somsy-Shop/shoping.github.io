@@ -1,7 +1,7 @@
 // detail.js
 // ค่าคงที่สำหรับแอปพลิเคชัน
 const APP_CONFIG = {
-    ORDER_LINK: "https://line.me/R/oaMessage/@shop123/",
+    ORDER_LINK: "https://www.facebook.com/messages/t/somsyonlineshop",
     CURRENCY: "₭"
 };
 
@@ -411,7 +411,7 @@ function renderProductDetail() {
                         </button>
                         <button class="btn-order-detail" onclick="handleOrder('${currentProduct.sku}', '${currentProduct.name}')">
                             <i class="fas fa-shopping-cart"></i> 
-                            ${currentProduct.preorder ? 'ສັ່ງລ່ວງໜ້າຜ່ານ LINE' : 'ສັ່ງຊື້ຜ່ານ LINE'}
+                            ${currentProduct.preorder ? 'ສອບຖາມ -​ ສັ່ງຊື້ ຄລິກ!' : 'ສອບຖາມ -​ ສັ່ງຊື້ ຄລິກ!'}
                         </button>
                     </div>
                 </div>
