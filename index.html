@@ -1,400 +1,21 @@
+<!-- product.html -->
 <!DOCTYPE html>
 <html lang="lo">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Profile Card - Responsive</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        /* ===== CSS Variables ===== */
-        :root {
-            --primary-white: #ffffff;
-            --primary-black: #000000;
-            --light-gray: #f5f5f5;
-            --medium-gray: #e0e0e0;
-            --dark-gray: #333333;
-            --accent-gray: #777777;
-            --hover-gray: #f0f0f0;
-            --border-gray: #dddddd;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.05);
-            --transition: all 0.3s ease;
-        }
-@font-face {
-    font-family: 'TikTokLao';
-    /* src: url('fonts/Kom-Regular.ttf') format('truetype'); */
-      src: url('fonts/Touk2-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-        /* ===== Navbar Styles ===== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 999;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-gray);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            padding: 0;
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            font-family: 'TikTokLao';
-            font-weight: 800;
-            font-size: 1.3rem;
-            color: var(--dark-gray);
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-logo i {
-            font-size: 1.5rem;
-            color: var(--dark-gray);
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-link {
-            color: var(--dark-gray);
-            font-weight: 500;
-            position: relative;
-            transition: var(--transition);
-            padding: 0.5rem 0;
-            font-family: 'TikTokLao';
-            font-size: 1rem;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -2px;
-            width: 0%;
-            height: 2px;
-            background-color: var(--dark-gray);
-            transition: var(--transition);
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary-black);
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        /* Mobile menu toggle */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1000;
-            background: transparent;
-            border: none;
-            padding: 5px;
-        }
-
-        .bar {
-            width: 25px;
-            height: 3px;
-            background-color: var(--dark-gray);
-            margin: 3px 0;
-            transition: var(--transition);
-            border-radius: 2px;
-        }
-
-        .menu-toggle.active .bar:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .menu-toggle.active .bar:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active .bar:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-
-        /* ===== Original Styles ===== */
-        body {
-            font-family: 'TikTokLao';
-            background-color: var(--light-gray);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            padding-top: 80px;
-        }
-
-        /* Container ຫຼັກ */
-        .card-container {
-            width: 100%;
-            max-width: 950px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        /* --- Style ສໍາລັບໜ້າຈໍຄອມ (Desktop) --- */
-        .decoration-circle {
-            position: absolute;
-            left: -80px;
-            width: 580px;
-            height: 580px;
-            background-color: #efece8;
-            border-radius: 50%;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .outer-border-circle {
-            border-radius: 50%;
-            padding: 70px;
-            background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .inner-circle {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .content {
-            margin-left: 550px;
-            z-index: 2;
-            flex: 1;
-        }
-
-        .content h1 { 
-            font-size: 45px; 
-            margin: 0; 
-            color: var(--dark-gray); 
-            font-weight: 700;
-        }
-        
-        .pre-order-tag { 
-            font-style: italic; 
-            font-size: 22px; 
-            margin-bottom: 15px; 
-            font-weight: bold; 
-            color: var(--accent-gray);
-        }
-        
-        .divider { 
-            width: 250px; 
-            height: 1px; 
-            background-color: var(--accent-gray); 
-            margin-bottom: 30px; 
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            font-size: 19px;
-            color: var(--dark-gray);
-        }
-
-        .info-item i {
-            width: 35px; 
-            height: 35px;
-            background-color: var(--dark-gray); 
-            color: white;
-            border-radius: 50%;
-            display: flex; 
-            justify-content: center; 
-            align-items: center;
-            margin-right: 15px; 
-            font-size: 16px;
-            flex-shrink: 0;
-        }
-
-        /* --- Style ສໍາລັບມືຖື (Mobile) --- */
-        @media (max-width: 768px) {
-            /* Navbar responsive styles */
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: var(--primary-white);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 80px 0 0 0;
-                transition: var(--transition);
-                border-left: 1px solid var(--border-gray);
-                z-index: 998;
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-menu.active {
-                right: 0;
-            }
-
-            .nav-link {
-                display: block;
-                padding: 1rem 2rem;
-                font-size: 1.1rem;
-                border-bottom: 1px solid var(--border-gray);
-            }
-
-            .nav-logo {
-                font-size: 1.2rem;
-            }
-
-            .nav-logo i {
-                font-size: 1.3rem;
-            }
-
-            /* Original mobile styles */
-            .card-container {
-                flex-direction: column;
-                align-items: flex-start;
-                background-color: white;
-                padding: 25px;
-                border-radius: 20px;
-                box-shadow: var(--shadow-light);
-            }
-
-            .decoration-circle {
-                position: static;
-                width: 100%;
-                height: auto;
-                background-color: transparent;
-                display: block;
-                margin-bottom: 20px;
-            }
-
-            .outer-border-circle {
-                padding: 0;
-                background-color: transparent;
-                justify-content: flex-start;
-            }
-
-            .header-mobile {
-                display: flex;
-                align-items: center;
-                gap: 15px;
-                width: 100%;
-            }
-
-            .inner-circle {
-                width: 80px;
-                height: 80px;
-                flex-shrink: 0;
-            }
-
-            .content {
-                margin-left: 0;
-                width: 100%;
-            }
-
-            .content h1 {
-                font-size: 24px;
-            }
-
-            .pre-order-tag {
-                font-size: 16px;
-                margin-bottom: 5px;
-            }
-
-            .divider {
-                width: 100%;
-                margin: 15px 0;
-            }
-
-            .info-item {
-                font-size: 16px;
-                align-items: flex-start;
-            }
-            
-            .info-item span {
-                line-height: 1.4;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-container {
-                padding: 1rem;
-            }
-
-            .nav-logo {
-                font-size: 1.1rem;
-            }
-
-            body {
-                padding: 15px;
-                padding-top: 70px;
-            }
-            
-            .nav-menu {
-                width: 250px;
-            }
-        }
-       
-    </style>
+    <title>ຮ້ານສົມສີ | Minimal Clothing 𝐒𝐨𝐦𝐬𝐲</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">
+            <a href="index.html" class="nav-logo">
                <img src="img/logo1.PNG" style="width: 30px;" alt="">
            
-                𝐒'𝐒𝐨𝐦 𝐒𝐨𝐦𝐬𝐲
+                𝐒'𝐒𝐨𝐦 𝐒𝐨𝐦𝐬𝐲 ເສື້ອຜ້າ - ເຄື່ອງໃຊ້
             </a>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
                 <div class="bar"></div>
@@ -402,101 +23,96 @@
                 <div class="bar"></div>
             </button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#" class="nav-link active">ໜ້າຫຼັກ</a></li>
-                <li><a href="product.html" class="nav-link">ສິນຄ້າ</a></li>
-            
+                <li><a href="product.html" class="nav-link active">ສິນຄ້າ</a></li>
                 <li><a href="contact.html" class="nav-link">ຕິດຕໍ່</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Original Content -->
-    <div class="card-container">
-        <div class="decoration-circle">
-            <div class="outer-border-circle">
-                <div class="header-mobile">
-                    <div class="inner-circle">
-                        <img src="img/logo.jpg" alt="Shop Logo" class="logo-img" >
-                    </div>
+    <div class="container">
+        <header>
+            <div class="logo">
+                 <img src="img/logo1.PNG" style="width: 50px;" alt="">
+                <div>
+                    <h1>𝐒'𝐒𝐨𝐦 𝐒𝐨𝐦𝐬𝐲 ເສື້ອຜ້າ - ເຄື່ອງໃຊ້</h1>
+                    <p class="tagline">ເສື້ອຜ້າເນັ້ນ style ສາວອວບ</p>
                 </div>
             </div>
-        </div>
+        </header>
 
-        <div class="content">
-            <h1>ເສື້ອຜ້າ - ເຄື່ອງໃຊ້</h1>
-            
-            ເສື້ອຜ້າເນັ້ນ style ສາວອວບ
-            <div class="pre-order-tag">PreOrder 5-7 days</div>
-            <div class="divider"></div>
+        <main>
+            <section class="filters-section">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="ຄົ້ນຫາຈາກຊື່ສິນຄ້າຫຼືລະຫັດ SKU...">
+                </div>
+                
+                <div class="filter-controls">
+                    <div class="category-filter">
+                        <h3>ໝວດຫມູ່ສິນຄ້າ:</h3>
+                        <div class="category-buttons" id="category-buttons">
+                            <button class="category-btn active" data-category="all">ທັງຫມົດ</button>
+                            <!-- จะถูกเพิ่มโดย JavaScript -->
+                        </div>
+                    </div>
+                    
+                  
+                </div>
+            </section>
 
-            <div class="info-item">
-                <i class="fa-solid fa-phone"></i>
-                <span>020 54544564</span>
+            <section class="products-section">
+                <div class="products-header">
+                    <h2>ສິນຄ້າທັງຫມົດ</h2>
+                    <div class="products-count">
+                        <span id="product-count">0</span> ສິນຄ້າ
+                        <span id="filter-info"></span>
+                    </div>
+                </div>
+                
+                <!-- เพิ่ม Filter Status -->
+                <div class="filter-status" id="filter-status" style="margin-bottom: 20px; padding: 10px; background: #f8f9fa; border-radius: 8px; display: none;">
+                    <span id="active-filter"></span>
+                    <button id="clear-filter" class="clear-filter-btn">
+                        <i class="fas fa-times"></i> ລ້າງຕົວກອງ
+                    </button>
+                </div>
+                
+                <div class="products-grid" id="products-grid">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>ກຳລັງໂຫລດສິນຄ້າ...</p>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination" id="pagination" style="display: none;">
+                    <button id="prev-page" class="page-btn">
+                        <i class="fas fa-chevron-left"></i> ກ່ອນໜ້າ
+                    </button>
+                    <div class="page-numbers" id="page-numbers"></div>
+                    <button id="next-page" class="page-btn">
+                        ຖັດໄປ <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 𝐒'𝐒𝐨𝐦 𝐒𝐨𝐦𝐬𝐲 ເສື້ອຜ້າ - ເຄື່ອງໃຊ້ - Product Catalog Single Page</p>
+            <div class="footer-info">
+                <p><i class="fas fa-map-marker-alt"></i> ທີ່ຢູ່: ວຽງຈັນ, ລາວ</p>
+                <p><i class="fas fa-phone"></i> ໂທ: +856 20 XX XX XX</p>
+                <p><i class="fas fa-envelope"></i> ອີເມວ: info@somsy.com</p>
             </div>
-
-            <div class="info-item">
-                <i class="fa-solid fa-envelope"></i>
-                <span>Somsy Keobounphan / 162120001349363001(BCEL)</span>
-            </div>
-
-            <div class="info-item">
-                <i class="fa-solid fa-location-dot"></i>
-                <span>ບ້ານໂພນພະເນົາ, ເມືອງໄຊເສດຖາ, ນະຄອນຫຼວງວຽງຈັນ</span>
-            </div>
-            <button><a href="product.html">ສັ່ງຊື້ເລີຍ!</a></button>
-        </div>
+        </footer>
     </div>
 
-    <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-        const navLinks = document.querySelectorAll('.nav-link');
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-text"></span>
+    </div>
 
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking a link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                menuToggle.classList.remove('active');
-                
-                // Remove active class from all links
-                navLinks.forEach(l => l.classList.remove('active'));
-                // Add active class to clicked link
-                link.classList.add('active');
-            });
-        });
-
-        // Close menu when clicking outside (for mobile)
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768) {
-                if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-                    navMenu.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                }
-            }
-        });
-
-        // Close menu on scroll (for mobile)
-        window.addEventListener('scroll', () => {
-            if (window.innerWidth <= 768) {
-                navMenu.classList.remove('active');
-                menuToggle.classList.remove('active');
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                navMenu.classList.remove('active');
-                menuToggle.classList.remove('active');
-            }
-        });
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
