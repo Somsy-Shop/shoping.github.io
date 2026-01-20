@@ -269,7 +269,7 @@
     ],
     "preorder": false,
     "stock": 50,
-    "sale": false,
+    "sale": true,
     "originalPrice": 150000
   },
   {
@@ -307,7 +307,7 @@
     ],
     "preorder": false,
     "stock": 50,
-    "sale": false,
+    "sale": true,
     "originalPrice": 150000
   },
   {
