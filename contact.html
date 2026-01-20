@@ -308,6 +308,16 @@
             border-left: 4px solid var(--messenger-color);
         }
 
+        .app-notice {
+            color: var(--facebook-color);
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .social-links {
             display: flex;
             flex-wrap: wrap;
@@ -417,6 +427,22 @@
             justify-content: center;
             font-size: 12px;
             opacity: 0.7;
+        }
+
+        .app-icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--dark-gray);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            border: 1px solid var(--border-gray);
         }
 
         /* Mobile responsiveness for social cards */
@@ -681,17 +707,25 @@
             <!-- Social Links Section -->
             <div class="social-section">
                 <div class="social-title">
-                    <i class="fas fa-mouse-pointer"></i>
-                    ຄລິກເຂົ້າຫາພວກເຮົາ:
+                    <i class="fas fa-mobile-alt"></i>
+                    ເຊື່ອມຕໍ່ຜ່ານແອັບ:
                 </div>
                 
                 <div class="social-instruction">
-                    <i class="fas fa-hand-point-right"></i> ຄລິກທີ່ປຸ່ມລຸ່ມນີ້ເພື່ອເຊື່ອມຕໍ່ກັບພວກເຮົາທັນທີ
+                    <i class="fas fa-hand-point-right"></i> ຄລິກທີ່ປຸ່ມລຸ່ມນີ້ເພື່ອເປີດແອັບຯ ແລະ ເຊື່ອມຕໍ່ກັບພວກເຮົາ
+                    <div class="app-notice">
+                        <i class="fas fa-check-circle"></i> ຈະເປີດໃນແອັບຯ ໂດຍກົງ
+                    </div>
                 </div>
 
                 <div class="social-links">
-                    <!-- Facebook Card -->
-                    <a href="https://www.facebook.com/share/1Do1mxq95M/?mibextid=wwXIfr" class="social-card" target="_blank">
+                    <!-- Facebook Card - สำหรับเปิดในแอป -->
+                    <a href="fb://page/?id=YOUR_PAGE_ID" 
+                       onclick="openApp('fb://page/?id=YOUR_PAGE_ID', 'https://www.facebook.com/share/1Do1mxq95M/?mibextid=wwXIfr')" 
+                       class="social-card">
+                        <div class="app-icon" title="ເປີດໃນແອັບ">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
                         <div class="click-indicator">
                             <i class="fas fa-external-link-alt"></i>
                         </div>
@@ -702,8 +736,13 @@
                         <div class="social-desc">ແຟນເພຈຂອງພວກເຮົາ</div>
                     </a>
 
-                    <!-- Messenger Card -->
-                    <a href="https://www.facebook.com/messages/t/somsyonlineshop" class="social-card" target="_blank">
+                    <!-- Messenger Card - สำหรับเปิดในแอป -->
+                    <a href="fb-messenger://user-thread/USER_ID_OR_PAGE_ID" 
+                       onclick="openApp('fb-messenger://user-thread/USER_ID_OR_PAGE_ID', 'https://www.facebook.com/messages/t/somsyonlineshop')" 
+                       class="social-card">
+                        <div class="app-icon" title="ເປີດໃນແອັບ">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
                         <div class="click-indicator">
                             <i class="fas fa-external-link-alt"></i>
                         </div>
@@ -714,8 +753,13 @@
                         <div class="social-desc">ສົ່ງຂໍ້ຄວາມຫາພວກເຮົາ</div>
                     </a>
 
-                    <!-- TikTok Card -->
-                    <a href="https://www.tiktok.com/@som_somsy?_r=1&_t=ZS-93BvL2sXX6u" class="social-card" target="_blank">
+                    <!-- TikTok Card - สำหรับเปิดในแอป -->
+                    <a href="snssdk1128://user/profile/USER_ID" 
+                       onclick="openApp('snssdk1128://user/profile/USER_ID', 'https://www.tiktok.com/@som_somsy?_r=1&_t=ZS-93BvL2sXX6u')" 
+                       class="social-card">
+                        <div class="app-icon" title="ເປີດໃນແອັບ">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
                         <div class="click-indicator">
                             <i class="fas fa-external-link-alt"></i>
                         </div>
@@ -726,8 +770,13 @@
                         <div class="social-desc">ວິດີໂອສິນຄ້າ</div>
                     </a>
 
-                    <!-- WhatsApp Card -->
-                    <a href="https://wa.me/8562054544564" class="social-card" target="_blank">
+                    <!-- WhatsApp Card - สำหรับเปิดในแอป -->
+                    <a href="whatsapp://send?phone=8562054544564" 
+                       onclick="openApp('whatsapp://send?phone=8562054544564', 'https://wa.me/8562054544564')" 
+                       class="social-card">
+                        <div class="app-icon" title="ເປີດໃນແອັບ">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
                         <div class="click-indicator">
                             <i class="fas fa-external-link-alt"></i>
                         </div>
@@ -737,6 +786,10 @@
                         <div class="social-name">WhatsApp</div>
                         <div class="social-desc">ສົ່ງຂໍ້ຄວາມສອບຖາມ</div>
                     </a>
+                </div>
+                
+                <div class="app-notice" style="margin-top: 15px; font-size: 12px; color: var(--accent-gray);">
+                    <i class="fas fa-info-circle"></i> ຖ້າບໍ່ເປີດໃນແອັບຯ ໂດຍກົງ, ຈະເປີດໃນເວັບໂບຣາວເຊີແທນ
                 </div>
             </div>
         </div>
@@ -792,6 +845,26 @@
             }
         });
 
+        // Function to open app or fallback to web
+        function openApp(appUrl, webUrl) {
+            // Store when we tried to open the app
+            const startTime = Date.now();
+            
+            // Try to open the app
+            window.location = appUrl;
+            
+            // If the app doesn't open within 2 seconds, redirect to web
+            setTimeout(function() {
+                // If we're still on the same page
+                if (Date.now() - startTime < 2100) {
+                    window.location = webUrl;
+                }
+            }, 2000);
+            
+            // Prevent default link behavior
+            return false;
+        }
+
         // Add hover effect to social cards
         document.querySelectorAll('.social-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
@@ -801,7 +874,31 @@
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
             });
+            
+            // For mobile touch
+            card.addEventListener('touchstart', function() {
+                this.style.transform = 'translateY(-4px)';
+            });
+            
+            card.addEventListener('touchend', function() {
+                this.style.transform = 'translateY(0)';
+            });
         });
+
+        // สำหรับ Facebook App - ใช้ Page ID
+        // วิธีหา Page ID: ไปที่เพจของคุณ > กดดูที่ source code > ค้นหา "pageID"
+        
+        // สำหรับ TikTok App - ใช้ User ID
+        // วิธีหา TikTok User ID: เปิดโปรไฟล์ TikTok ในเบราว์เซอร์ > ดู URL > @som_somsy
+        
+        // สำหรับ Messenger App - ใช้ Page ID หรือ Username
+        // fb-messenger://user-thread/PAGE_ID หรือ fb-messenger://user/USERNAME
+        
+        console.log("Instructions for getting App URLs:");
+        console.log("1. Facebook: fb://page/?id=YOUR_PAGE_ID");
+        console.log("2. Messenger: fb-messenger://user-thread/USER_ID_OR_PAGE_ID");
+        console.log("3. TikTok: snssdk1128://user/profile/USER_ID");
+        console.log("4. WhatsApp: whatsapp://send?phone=PHONE_NUMBER");
     </script>
 
 </body>
