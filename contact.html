@@ -710,7 +710,7 @@
                     <i class="fas fa-mobile-alt"></i>
                     ເຊື່ອມຕໍ່ຜ່ານແອັບ:
                 </div>
-                
+
                 <div class="social-instruction">
                     <i class="fas fa-hand-point-right"></i> ຄລິກທີ່ປຸ່ມລຸ່ມນີ້ເພື່ອເປີດແອັບຯ ແລະ ເຊື່ອມຕໍ່ກັບພວກເຮົາ
                     <div class="app-notice">
@@ -720,9 +720,9 @@
 
                 <div class="social-links">
                     <!-- Facebook Card - สำหรับเปิดในแอป -->
-                    <a href="fb://page/?id=somsyonlineshop" 
-                       onclick="openApp('fb://page/?id=somsyonlineshop', 'https://www.facebook.com/share/1Do1mxq95M/?mibextid=wwXIfr')" 
-                       class="social-card">
+                    <a href="fb://page/somsyonlineshop"
+                        onclick="openApp('fb://page/?id=somsyonlineshop', 'https://www.facebook.com/share/1Do1mxq95M/?mibextid=wwXIfr')"
+                        class="social-card">
                         <div class="app-icon" title="ເປີດໃນແອັບ">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
@@ -737,9 +737,9 @@
                     </a>
 
                     <!-- Messenger Card - สำหรับเปิดในแอป -->
-                    <a href="fb-messenger://user-thread/somsyonlineshop" 
-                       onclick="openApp('fb-messenger://user-thread/somsyonlineshop', 'https://www.facebook.com/messages/t/somsyonlineshop')" 
-                       class="social-card">
+                    <a href="fb-messenger://user-thread/somsyonlineshop"
+                        onclick="openApp('fb-messenger://user?somsyonlineshop', 'https://m.me/somsyonlineshop')"
+                        class="social-card">
                         <div class="app-icon" title="ເປີດໃນແອັບ">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
@@ -754,9 +754,9 @@
                     </a>
 
                     <!-- TikTok Card - สำหรับเปิดในแอป -->
-                    <a href="snssdk1128://user/profile/@som_somsy" 
-                       onclick="openApp('snssdk1128://user/profile/@som_somsy', 'https://www.tiktok.com/@som_somsy?_r=1&_t=ZS-93BvL2sXX6u')" 
-                       class="social-card">
+                    <a href="snssdk1128://user/profile/@som_somsy"
+                        onclick="openApp('snssdk1128://user/profile/@som_somsy', 'https://www.tiktok.com/@som_somsy?_r=1&_t=ZS-93BvL2sXX6u')"
+                        class="social-card">
                         <div class="app-icon" title="ເປີດໃນແອັບ">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
@@ -771,9 +771,9 @@
                     </a>
 
                     <!-- WhatsApp Card - สำหรับเปิดในแอป -->
-                    <a href="whatsapp://send?phone=8562054544564" 
-                       onclick="openApp('whatsapp://send?phone=8562054544564', 'https://wa.me/8562054544564')" 
-                       class="social-card">
+                    <a href="whatsapp://send?phone=8562054544564"
+                        onclick="openApp('whatsapp://send?phone=8562054544564', 'https://wa.me/8562054544564')"
+                        class="social-card">
                         <div class="app-icon" title="ເປີດໃນແອັບ">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
@@ -787,7 +787,7 @@
                         <div class="social-desc">ສົ່ງຂໍ້ຄວາມສອບຖາມ</div>
                     </a>
                 </div>
-                
+
                 <div class="app-notice" style="margin-top: 15px; font-size: 12px; color: var(--accent-gray);">
                     <i class="fas fa-info-circle"></i> ຖ້າບໍ່ເປີດໃນແອັບຯ ໂດຍກົງ, ຈະເປີດໃນເວັບໂບຣາວເຊີແທນ
                 </div>
@@ -849,51 +849,51 @@
         function openApp(appUrl, webUrl) {
             // Store when we tried to open the app
             const startTime = Date.now();
-            
+
             // Try to open the app
             window.location = appUrl;
-            
+
             // If the app doesn't open within 2 seconds, redirect to web
-            setTimeout(function() {
+            setTimeout(function () {
                 // If we're still on the same page
                 if (Date.now() - startTime < 2100) {
                     window.location = webUrl;
                 }
             }, 2000);
-            
+
             // Prevent default link behavior
             return false;
         }
 
         // Add hover effect to social cards
         document.querySelectorAll('.social-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 this.style.transform = 'translateY(-8px)';
             });
-            
-            card.addEventListener('mouseleave', function() {
+
+            card.addEventListener('mouseleave', function () {
                 this.style.transform = 'translateY(0)';
             });
-            
+
             // For mobile touch
-            card.addEventListener('touchstart', function() {
+            card.addEventListener('touchstart', function () {
                 this.style.transform = 'translateY(-4px)';
             });
-            
-            card.addEventListener('touchend', function() {
+
+            card.addEventListener('touchend', function () {
                 this.style.transform = 'translateY(0)';
             });
         });
 
         // สำหรับ Facebook App - ใช้ Page ID
         // วิธีหา Page ID: ไปที่เพจของคุณ > กดดูที่ source code > ค้นหา "pageID"
-        
+
         // สำหรับ TikTok App - ใช้ User ID
         // วิธีหา TikTok User ID: เปิดโปรไฟล์ TikTok ในเบราว์เซอร์ > ดู URL > @som_somsy
-        
+
         // สำหรับ Messenger App - ใช้ Page ID หรือ Username
         // fb-messenger://user-thread/PAGE_ID หรือ fb-messenger://user/USERNAME
-        
+
         console.log("Instructions for getting App URLs:");
         console.log("1. Facebook: fb://page/?id=YOUR_PAGE_ID");
         console.log("2. Messenger: fb-messenger://user-thread/USER_ID_OR_PAGE_ID");
