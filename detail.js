@@ -330,7 +330,7 @@ function renderProductDetail() {
                 <div class="detail-info">
                     <!-- Badges สำหรับ preorder และ sale -->
                     <div class="product-badges-detail">
-                        ${currentProduct.preorder ? '<span class="badge preorder"><i class="fas fa-clock"></i> ພຮີອໍເດີ້</span>' : ''}
+                        ${currentProduct.preorder ? '<span class="badge preorder"><i class="fas fa-clock"></i> ພຣີອໍເດີ້</span>' : ''}
                         ${currentProduct.sale ? `<span class="badge sale"><i class="fas fa-tag"></i> ລາຄາພິເສດ</span>` : ''}
                     </div>
                     
@@ -363,7 +363,7 @@ function renderProductDetail() {
                             <span class="preorder-text">ພຣີອໍເດີ້ 7-10 ມື້</span>
                         ` : `
                             <i class="fas ${currentProduct.stock > 0 ? 'fa-check-circle success' : 'fa-times-circle error'}"></i>
-                            <span>${currentProduct.stock > 0 ? 'ມີສິນຄ້າ' : 'ຫມົດສິນຄ້າ'}</span>
+                            <span>${currentProduct.stock > 0 ? 'ຜ' : 'ຫມົດສິນຄ້າ'}</span>
                             ${currentProduct.stock ? `<span class="stock-count">(${currentProduct.stock} ຊິ້ນ)</span>` : ''}
                         `}
                     </div>

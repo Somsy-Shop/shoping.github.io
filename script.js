@@ -176,7 +176,7 @@ function renderProducts() {
                 
                 <!-- Badges สำหรับ preorder และ sale -->
                 <div class="product-badges">
-                    ${product.preorder ? '<span class="badge preorder">ພຮີອໍເດີ້</span>' : ''}
+                    ${product.preorder ? '<span class="badge preorder">ເຄື່ອງພຣີອໍເດີ້</span>' : ''}
                     ${product.sale ? '<span class="badge sale">ລາຄາພິເສດ</span>' : ''}
                 </div>
             </div>
@@ -208,10 +208,10 @@ function renderProducts() {
                 <div class="stock-info-mini">
                     ${product.preorder ? `
                         <i class="fas fa-clock preorder-icon"></i>
-                        <span class="preorder-text">ພຮີອໍເດີ້</span>
+                        <span class="preorder-text">ເຄື່ອງພຣີອໍເດີ້</span>
                     ` : `
                         <i class="fas ${product.stock > 0 ? 'fa-check-circle success' : 'fa-times-circle error'}"></i>
-                        <span>${product.stock > 0 ? 'ມີສິນຄ້າ' : 'ຫມົດສິນຄ້າ'}</span>
+                        <span>${product.stock > 0 ? 'ເຄື່ອງພ້ອມສົ່ງ' : 'ຫມົດສິນຄ້າ'}</span>
                         ${product.stock ? `<span class="stock-count">(${product.stock} ຊິ້ນ)</span>` : ''}
                     `}
                 </div>
