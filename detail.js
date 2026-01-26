@@ -24,13 +24,13 @@ function createNotification() {
     notification = document.createElement('div');
     notification.className = 'notification';
     notification.id = 'notification';
-    
+
     const icon = document.createElement('i');
     icon.className = 'fas fa-check-circle';
-    
+
     notificationText = document.createElement('span');
     notificationText.id = 'notification-text';
-    
+
     notification.appendChild(icon);
     notification.appendChild(notificationText);
     document.body.appendChild(notification);
@@ -42,7 +42,7 @@ function createImageGallery(images) {
     const displayImages = images.slice(0, 8);
     totalImages = displayImages.length;
     currentImageIndex = 0;
-    
+
     return `
         <div class="image-gallery">
             <div class="main-image-container">
@@ -97,33 +97,33 @@ function changeImage(direction) {
 function selectImage(index) {
     if (index < 0 || index >= totalImages) return;
     currentImageIndex = index;
-    
+
     const mainImage = document.getElementById('main-image');
     const zoomImage = document.getElementById('zoom-image');
-    
+
     if (mainImage && currentProduct && currentProduct.images) {
         const targetImg = currentProduct.images[currentImageIndex];
         mainImage.src = targetImg;
-        
+
         if (zoomImage) {
             zoomImage.src = targetImg;
         }
-        
+
         const imageCounter = document.querySelector('.main-image-container .image-counter');
         const zoomCounter = document.getElementById('zoom-counter');
-        
+
         if (imageCounter) {
             imageCounter.textContent = `${currentImageIndex + 1} / ${totalImages}`;
         }
         if (zoomCounter) {
             zoomCounter.textContent = `${currentImageIndex + 1} / ${totalImages}`;
         }
-        
+
         const thumbnails = document.querySelectorAll('.thumbnail');
         thumbnails.forEach((thumb, i) => {
             thumb.classList.toggle('active', i === currentImageIndex);
         });
-        
+
         updateNavButtons();
     }
 }
@@ -132,7 +132,7 @@ function selectImage(index) {
 function updateNavButtons() {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-    
+
     if (prevBtn && nextBtn) {
         prevBtn.disabled = currentImageIndex === 0;
         nextBtn.disabled = currentImageIndex === totalImages - 1;
@@ -144,15 +144,15 @@ function openZoomView(index) {
     const zoomOverlay = document.getElementById('zoom-overlay');
     const zoomImage = document.getElementById('zoom-image');
     const zoomCounter = document.getElementById('zoom-counter');
-    
+
     if (zoomOverlay && zoomImage && currentProduct && currentProduct.images) {
         currentImageIndex = index;
         zoomImage.src = currentProduct.images[currentImageIndex];
-        
+
         if (zoomCounter) {
             zoomCounter.textContent = `${currentImageIndex + 1} / ${totalImages}`;
         }
-        
+
         zoomOverlay.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
@@ -172,35 +172,17 @@ function changeZoomImage(direction) {
     const newIndex = (currentImageIndex + direction + totalImages) % totalImages;
     const zoomImage = document.getElementById('zoom-image');
     const zoomCounter = document.getElementById('zoom-counter');
-    
+
     if (zoomImage && currentProduct && currentProduct.images) {
         currentImageIndex = newIndex;
         zoomImage.src = currentProduct.images[currentImageIndex];
-        
+
         if (zoomCounter) {
             zoomCounter.textContent = `${currentImageIndex + 1} / ${totalImages}`;
         }
     }
 }
 
-// Get color value for CSS
-function getColorValue(colorName) {
-    const colorMap = {
-        'ດຳ': '#000000',
-        'ໂກໂກ້': '#964B00',
-        'ເທົາເຂັ້ມ': '#8B4513',
-        'ເທົາອ່ອນ': '#D2B48C',
-        'ເທົາຟ້າ': '#87CEEB',
-        'ຄີມ': '#FFFDD0',
-        'ຂາວ': '#FFFFFF',
-        'ນ້ຳຕານ': '#A52A2A',
-        'ຟ້າ': '#0000FF',
-        'ແດງ': '#FF0000',
-        'ຂຽວ': '#008000'
-    };
-    
-    return colorMap[colorName] || '#CCCCCC';
-}
 
 // คำนวณส่วนลด
 function calculateDiscount(originalPrice, salePrice) {
@@ -222,10 +204,10 @@ function showNotification(message) {
     if (!notification) {
         createNotification();
     }
-    
+
     notificationText.textContent = message;
     notification.classList.add("show");
-    
+
     setTimeout(() => {
         notification.classList.remove("show");
     }, 3000);
@@ -235,10 +217,10 @@ function showNotification(message) {
 function handleOrder(sku, productName) {
     // คัดลอก SKU ไปที่คลิปบอร์ด
     copyToClipboard(sku);
-    
+
     // แสดงแจ้งเตือน
     showNotification(`ຄັດລອກ "${sku}" ສຳເລັດແລ້ວ!`);
-    
+
     // เปิดลิงก์สั่งซื้อ
     setTimeout(() => {
         window.open(APP_CONFIG.ORDER_LINK, '_blank');
@@ -266,21 +248,21 @@ async function loadProductDetail() {
     try {
         const response = await fetch('data.json');
         const products = await response.json();
-        
+
         // หาสินค้าจาก SKU ที่ระบุใน URL
         currentProduct = products.find(p => p.sku === sku);
-        
+
         if (!currentProduct) {
             showProductNotFound();
             return;
         }
-        
+
         // เพิ่ม flag available
         currentProduct.available = currentProduct.preorder !== undefined ? currentProduct.preorder : (currentProduct.stock > 0);
-        
+
         // แสดงรายละเอียดสินค้า
         renderProductDetail();
-        
+
     } catch (error) {
         console.error('Error loading product detail:', error);
         showLoadingError();
@@ -317,9 +299,11 @@ function showLoadingError() {
 
 // แสดงรายละเอียดสินค้า
 function renderProductDetail() {
-    const discount = currentProduct.sale && currentProduct.originalPrice ? 
+    const discount = currentProduct.sale && currentProduct.originalPrice ?
         calculateDiscount(currentProduct.originalPrice, currentProduct.price) : 0;
-    
+
+
+    const allcol = currentProduct.colors.length;
     productDetailContainer.innerHTML = `
         <div class="product-detail">
             <div class="detail-content">
@@ -363,7 +347,7 @@ function renderProductDetail() {
                             <span class="preorder-text">ພຣີອໍເດີ້ 7-10 ມື້</span>
                         ` : `
                             <i class="fas ${currentProduct.stock > 0 ? 'fa-check-circle success' : 'fa-times-circle error'}"></i>
-                            <span>${currentProduct.stock > 0 ? 'ຜ' : 'ຫມົດສິນຄ້າ'}</span>
+                            <span>${currentProduct.stock > 0 ? 'ມີຈຳນວນ' : 'ຫມົດສິນຄ້າ'}</span>
                             ${currentProduct.stock ? `<span class="stock-count">(${currentProduct.stock} ຊິ້ນ)</span>` : ''}
                         `}
                     </div>
@@ -379,10 +363,17 @@ function renderProductDetail() {
                         </div>
                         
                         <div class="spec-card">
-                            <h4><i class="fas fa-palette"></i> ສີທີມີ</h4>
+                            <h4><i class="fas fa-palette"></i> ສີທີມີ <span style="  
+                            background: #ff9800;
+                            color: #fff;
+                            padding: 2px 10px;
+                            border-radius: 20px;
+                            font-size: 14px;
+                            font-weight: bold;"
+                            >(${allcol})</span> </h4>
                             <div class="colors-container">
                                 ${(currentProduct.colors || ['ບໍ່ມີຂໍ້ມູນ']).map(color => `
-                                    <span class="color-item" style="background-color: ${getColorValue(color)}; color: ${color === 'ຂາວ' || color === 'ຄີມ' || color === 'ເທົາອ່ອນ' ? '#000' : '#fff'}" title="${color}">
+                                    <span class="color-item" style="border:2px solid black; background-color:rgba(205, 209, 210, 1);">
                                         ${color}
                                     </span>
                                 `).join('')}
@@ -406,7 +397,7 @@ function renderProductDetail() {
                     ` : ''}
                     
                     <div class="detail-actions">
-                        <button class="btn-back" onclick="window.location.href='product.html'">
+                        <button class="btn-back" onclick="window.location.href='index.html'">
                             <i class="fas fa-arrow-left"></i> ກັບຫນ້າລາຍການ
                         </button>
                         <button class="btn-order-detail" onclick="handleOrder('${currentProduct.sku}', '${currentProduct.name}')">
@@ -418,22 +409,22 @@ function renderProductDetail() {
             </div>
         </div>
     `;
-    
+
     // ซ่อน loading state
     const loadingElement = document.querySelector('.loading');
     if (loadingElement) {
         loadingElement.style.display = 'none';
     }
-    
+
     // อัปเดตปุ่มเลื่อนหลังจากสร้างแกลเลอรี่แล้ว
     setTimeout(updateNavButtons, 100);
-    
+
     // เพิ่ม Event Listener สำหรับปุ่ม ESC เพื่อปิด zoom
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             closeZoomView();
         }
-        
+
         // การควบคุมแกลเลอรี่ด้วยปุ่มลูกศร
         const zoomOverlay = document.getElementById('zoom-overlay');
         if (zoomOverlay && zoomOverlay.style.display === 'flex') {
@@ -450,11 +441,11 @@ function renderProductDetail() {
             }
         }
     });
-    
+
     // Add click event for zoom overlay
     const zoomOverlay = document.getElementById('zoom-overlay');
     if (zoomOverlay) {
-        zoomOverlay.addEventListener('click', function(e) {
+        zoomOverlay.addEventListener('click', function (e) {
             if (e.target === this) {
                 closeZoomView();
             }
