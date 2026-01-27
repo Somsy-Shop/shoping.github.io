@@ -384,6 +384,10 @@ header {
     background-color: #e74c3c;
     color: white;
 }
+.badge.sales {
+    background-color: #1ec46e;
+    color: white;
+}
 
 .discount-badge {
     background-color: #e74c3c;
