@@ -216,7 +216,7 @@ function renderProducts() {
                     <div class="stock-status ${product.out ? 'out' : product.preorder ? 'preorder' : 'in-stock'}">
                         <i class="fas ${product.out ? 'fa-ban' : product.preorder ? 'fa-clock' : 'fa-check'}"></i>
                         ${product.out ? 'ສິນຄ້າໝົດ' : 
-                          product.preorder ? 'ພຣີອໍເດີ້ 5-7 ວັນ' : 
+                          product.preorder ? 'ພຣີອໍເດີ້ 7-10 ວັນ' : 
                           `ພ້ອມສົ່ງ ${product.stock || 0} ຊິ້ນ`}
                     </div>
                 </div>
@@ -224,7 +224,7 @@ function renderProducts() {
                 <div class="product-actions">
                     <span class="action-btn ${product.out ? 'out-btn' : 'in-stock-btn'}">
                         <i class="fas ${product.out ? 'fa-eye' : 'fa-shopping-cart'}"></i>
-                        ${product.out ? 'ເບິ່ງລາຍລະອຽດ' : 'ສັ່ງຊື້'}
+                        ${product.out ? 'ເບິ່ງລາຍລະອຽດ' : 'ຄລິກເບິ່ງລາຍລະອຽດ'}
                     </span>
                 </div>
             </div>
