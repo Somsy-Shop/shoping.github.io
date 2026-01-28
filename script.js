@@ -199,7 +199,7 @@ function renderProducts() {
             <div class="product-info">
                 <div class="product-category">${product.category}</div>
                 <h3 class="product-name">${product.name}</h3>
-                <p class="product-description">${product.description.substring(0, 60)}${product.description.length > 60 ? '...' : ''}</p>
+                <p class="product-description">${product.description.substring(0, 100)}${product.description.length > 60 ? '...' : ''}</p>
                 
                 <div class="price-section">
                     <div class="price-main">
