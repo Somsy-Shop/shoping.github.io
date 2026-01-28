@@ -426,23 +426,15 @@ function renderProductDetail() {
                     ` : ''}
                     
                     <!-- Alternative products suggestion for out of stock -->
-                    ${isOutOfStock ? `
-                        <div class="alternative-products">
-                            <h3><i class="fas fa-lightbulb"></i> ທາງເລືອກອື່ນ</h3>
-                            <p>ທ່ານອາດຈະສົນໃຈສິນຄ້າອື່ນໆທີ່ຄ້າຍຄືກັນ:</p>
-                            <a href="product.html?category=${currentProduct.category}" class="btn-view-alternatives">
-                                <i class="fas fa-search"></i> ຄົ້ນຫາສິນຄ້າໃນໝວດ ${currentProduct.category}
-                            </a>
-                        </div>
-                    ` : ''}
+                   
                     
                     <div class="detail-actions">
                         <button class="btn-back" onclick="window.location.href='index.html'">
                             <i class="fas fa-arrow-left"></i> ກັບຫນ້າລາຍການ
                         </button>
                         ${isOutOfStock ? `
-                            <button class="btn-order-detail disabled" disabled>
-                                <i class="fas fa-ban"></i> ສິນຄ້າໝົດແລ້ວ
+                            <button class="btn-order-detail out-of-stock-btn" onclick="handleOutOfStockAction()">
+                                <i class="fas fa-info-circle"></i> ເບິ່ງລາຍລະອຽດ
                             </button>
                         ` : `
                             <button class="btn-order-detail" onclick="handleOrder('${currentProduct.sku}', '${currentProduct.name}')">
@@ -499,6 +491,41 @@ function renderProductDetail() {
     }
 }
 
+// ฟังก์ชันสำหรับการจัดการเมื่อสินค้าหมด
+function handleOutOfStockAction() {
+    // แจ้งเตือนว่าเป็นสินค้าหมด
+    showNotification(`ສິນຄ້ານີ້ໝົດແລ້ວ, ກະລຸນາລອງເບິ່ງສິນຄ້າອື່ນ!`);
+    
+    // คัดลอก SKU ไปที่คลิปบอร์ด (สำหรับกรณีที่ลูกค้าต้องการสอบถาม)
+    copyToClipboard(currentProduct.sku);
+    
+    // เปิดลิงก์สำหรับสอบถามเกี่ยวกับสินค้าที่หมด
+    setTimeout(() => {
+        // สร้างข้อความสำหรับสอบถามสินค้าหมด
+        const message = `ສະບາຍດີ, ຂ້ອຍສົນໃຈສິນຄ້າ ${currentProduct.name} (SKU: ${currentProduct.sku}) ແຕ່ໝົດແລ້ວ, ມີເວລາໃດຈະມີໃຫມ່ອີກ?`;
+        const encodedMessage = encodeURIComponent(message);
+        
+        // เปิดลิงก์ Messenger พร้อมข้อความ
+        window.open(`https://m.me/somsyonlineshop?text=${encodedMessage}`, '_blank');
+    }, 1000);
+}
+
+// จัดการการสั่งซื้อ - แก้ไขให้รองรับสินค้าหมด
+function handleOrder(sku, productName) {
+    // ถ้าสินค้าหมด ให้ใช้ฟังก์ชันสำหรับสินค้าหมดแทน
+    if (currentProduct && currentProduct.out === true) {
+        handleOutOfStockAction();
+        return;
+    }
+    
+    // สำหรับสินค้าที่ยังมี (โค้ดเดิม)
+    copyToClipboard(sku);
+    showNotification(`ຄັດລອກ "${sku}" ສຳເລັດແລ້ວ!`);
+    
+    setTimeout(() => {
+        window.open(APP_CONFIG.ORDER_LINK, '_blank');
+    }, 800);
+}
 // Mobile Menu Handling
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
