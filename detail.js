@@ -302,27 +302,53 @@ function renderProductDetail() {
     const discount = currentProduct.sale && currentProduct.originalPrice ?
         calculateDiscount(currentProduct.originalPrice, currentProduct.price) : 0;
 
-
     const allcol = currentProduct.colors.length;
+    
+    // ตรวจสอบว่าสินค้าหมดหรือไม่
+    const isOutOfStock = currentProduct.out === true;
+    
     productDetailContainer.innerHTML = `
         <div class="product-detail">
             <div class="detail-content">
                 <div class="detail-image-container">
                     ${createImageGallery(currentProduct.images || [currentProduct.image])}
+                    
+                    <!-- สัญลักษณ์สินค้าหมด -->
+                    ${isOutOfStock ? `
+                        <div class="out-of-stock-detail-overlay">
+                            <div class="out-of-stock-detail-badge">ໝົດແລ້ວ</div>
+                            <div class="out-of-stock-detail-text">ສິນຄ້ານີ້ໝົດສະຕ໋ອກແລ້ວ</div>
+                        </div>
+                    ` : ''}
                 </div>
                 
                 <div class="detail-info">
                     <!-- Badges สำหรับ preorder และ sale -->
                     <div class="product-badges-detail">
-                        ${currentProduct.preorder ? '<span class="badge preorder"><i class="fas fa-clock"></i> ພຣີອໍເດີ້</span>' : ''}
-                        ${currentProduct.sale ? `<span class="badge sale"><i class="fas fa-tag"></i> ລາຄາພິເສດ</span>` : ''}
+                        ${isOutOfStock ? '<span class="badge out-stock-detail"><i class="fas fa-ban"></i> ໝົດສິນຄ້າ</span>' : ''}
+                        ${!isOutOfStock && currentProduct.preorder ? '<span class="badge preorder"><i class="fas fa-clock"></i> ພຣີອໍເດີ້</span>' : ''}
+                        ${!isOutOfStock && currentProduct.sale ? `<span class="badge sale"><i class="fas fa-tag"></i> ລາຄາພິເສດ</span>` : ''}
                     </div>
                     
                     <div class="detail-category">${currentProduct.category || 'ບໍ່ມີຂໍ້ມູນ'}</div>
-                    <h1 class="detail-name">${currentProduct.name}</h1>
+                    <h1 class="detail-name ${isOutOfStock ? 'out-of-stock-title' : ''}">
+                        ${currentProduct.name}
+                        ${isOutOfStock ? '<span class="status-emoji">❌</span>' : ''}
+                    </h1>
+                    
+                    <!-- ข้อความแจ้งเตือนสินค้าหมด -->
+                    ${isOutOfStock ? `
+                        <div class="out-of-stock-alert">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <strong>ສິນຄ້ານີ້ໝົດສະຕ໋ອກແລ້ວ</strong>
+                                <p>ທ່ານຍັງສາມາດຊົມລາຍລະອຽດຂອງສິນຄ້າໄດ້ ແຕ່ບໍ່ສາມາດສັ່ງຊື້ໄດ້ໃນຂະນະນີ້</p>
+                            </div>
+                        </div>
+                    ` : ''}
                     
                     <!-- Price with discount -->
-                    <div class="detail-price-container">
+                    <div class="detail-price-container ${isOutOfStock ? 'out-of-stock-price' : ''}">
                         <div class="detail-price">
                             ${formatPrice(currentProduct.price)} ${APP_CONFIG.CURRENCY}
                             ${currentProduct.sale && currentProduct.originalPrice ? `
@@ -331,7 +357,7 @@ function renderProductDetail() {
                                 </span>
                             ` : ''}
                         </div>
-                        ${currentProduct.sale && currentProduct.originalPrice ? `
+                        ${!isOutOfStock && currentProduct.sale && currentProduct.originalPrice ? `
                             <div class="detail-discount">
                                 ຫຼຸດສ່ວນ ${discount}%
                             </div>
@@ -341,13 +367,16 @@ function renderProductDetail() {
                     <div class="detail-sku">SKU: <span style="color: blue; font-weight: 600;">${currentProduct.sku}</span></div>
                     
                     <!-- Stock info -->
-                    <div class="detail-stock-info">
-                        ${currentProduct.preorder ? `
+                    <div class="detail-stock-info ${isOutOfStock ? 'out-of-stock-info' : ''}">
+                        ${isOutOfStock ? `
+                            <i class="fas fa-ban error"></i>
+                            <span class="error-text">ສິນຄ້າໝົດແລ້ວ</span>
+                        ` : currentProduct.preorder ? `
                             <i class="fas fa-clock preorder-icon"></i>
                             <span class="preorder-text">ພຣີອໍເດີ້ 7-10 ມື້</span>
                         ` : `
                             <i class="fas ${currentProduct.stock > 0 ? 'fa-check-circle success' : 'fa-times-circle error'}"></i>
-                            <span>${currentProduct.stock > 0 ? 'ມີຈຳນວນ' : 'ຫມົດສິນຄ້າ'}</span>
+                            <span>${currentProduct.stock > 0 ? 'ມີຈຳນວນ' : 'ໝົດສິນຄ້າ'}</span>
                             ${currentProduct.stock ? `<span class="stock-count">(${currentProduct.stock} ຊິ້ນ)</span>` : ''}
                         `}
                     </div>
@@ -355,14 +384,14 @@ function renderProductDetail() {
                     <p class="detail-description">${currentProduct.description || 'ບໍ່ມີລາຍລະອຽດ'}</p>
                     
                     <div class="detail-specs-grid">
-                        <div class="spec-card">
+                        <div class="spec-card ${isOutOfStock ? 'out-of-stock-card' : ''}">
                             <h4><i class="fas fa-ruler"></i> Size (ຂະຫນາດ)</h4>
                             <div class="sizes-container">
                                 ${(currentProduct.sizes || ['ບໍ່ມີຂໍ້ມູນ']).map(size => `<span class="size-item">${size}</span>`).join('')}
                             </div>
                         </div>
                         
-                        <div class="spec-card">
+                        <div class="spec-card ${isOutOfStock ? 'out-of-stock-card' : ''}">
                             <h4><i class="fas fa-palette"></i> ສີທີມີ <span style="  
                             background: #ff9800;
                             color: #fff;
@@ -383,7 +412,7 @@ function renderProductDetail() {
                     
                     <!-- Details -->
                     ${currentProduct.details && currentProduct.details.length > 0 ? `
-                        <div class="detail-specs">
+                        <div class="detail-specs ${isOutOfStock ? 'out-of-stock-details' : ''}">
                             <h3><i class="fas fa-info-circle"></i> ລາຍລະອຽດເພີ່ມເຕີມ</h3>
                             <div class="details-container">
                                 ${currentProduct.details.map(detail => `
@@ -396,14 +425,31 @@ function renderProductDetail() {
                         </div>
                     ` : ''}
                     
+                    <!-- Alternative products suggestion for out of stock -->
+                    ${isOutOfStock ? `
+                        <div class="alternative-products">
+                            <h3><i class="fas fa-lightbulb"></i> ທາງເລືອກອື່ນ</h3>
+                            <p>ທ່ານອາດຈະສົນໃຈສິນຄ້າອື່ນໆທີ່ຄ້າຍຄືກັນ:</p>
+                            <a href="product.html?category=${currentProduct.category}" class="btn-view-alternatives">
+                                <i class="fas fa-search"></i> ຄົ້ນຫາສິນຄ້າໃນໝວດ ${currentProduct.category}
+                            </a>
+                        </div>
+                    ` : ''}
+                    
                     <div class="detail-actions">
                         <button class="btn-back" onclick="window.location.href='index.html'">
                             <i class="fas fa-arrow-left"></i> ກັບຫນ້າລາຍການ
                         </button>
-                        <button class="btn-order-detail" onclick="handleOrder('${currentProduct.sku}', '${currentProduct.name}')">
-                            <i class="fas fa-shopping-cart"></i> 
-                            ${currentProduct.preorder ? 'ສອບຖາມ -​ ສັ່ງຊື້ ຄລິກ!' : 'ສອບຖາມ -​ ສັ່ງຊື້ ຄລິກ!'}
-                        </button>
+                        ${isOutOfStock ? `
+                            <button class="btn-order-detail disabled" disabled>
+                                <i class="fas fa-ban"></i> ສິນຄ້າໝົດແລ້ວ
+                            </button>
+                        ` : `
+                            <button class="btn-order-detail" onclick="handleOrder('${currentProduct.sku}', '${currentProduct.name}')">
+                                <i class="fas fa-shopping-cart"></i> 
+                                ${currentProduct.preorder ? 'ສອບຖາມ -​ ສັ່ງຊື້ ຄລິກ!' : 'ສອບຖາມ -​ ສັ່ງຊື້ ຄລິກ!'}
+                            </button>
+                        `}
                     </div>
                 </div>
             </div>

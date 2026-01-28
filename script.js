@@ -156,7 +156,7 @@ function renderProducts() {
             <div class="no-products" style="grid-column: 1 / -1; text-align: center; padding: 50px;">
                 <i class="fas fa-search" style="font-size: 3rem; color: #ccc; margin-bottom: 15px;"></i>
                 <h3>ບໍ່ເຫັນສິນຄ້າທີ່ຄົນຫາ</h3>
-                <p>ລອງປ່ຽນຄຳຄົ້ນຫາຫຼືໝວດຫມູ່ສິນຄ້າ</p>
+                <p>ລອງປ່ຽນຄຳຄົ້ນຫາຫຼືໝວດໝູ່ສິນຄ້າ</p>
             </div>
         `;
         pagination.style.display = 'none';
@@ -168,58 +168,63 @@ function renderProducts() {
     const endIndex = startIndex + APP_CONFIG.ITEMS_PER_PAGE;
     const productsToShow = filteredProducts.slice(startIndex, endIndex);
     
-    productsGrid.innerHTML = productsToShow.map(product => `
-        <a href="detail.html?sku=${product.sku}" class="product-card" data-sku="${product.sku}">
-            <div class="product-image">
-                <img src="${product.image}" alt="${product.name}" loading="lazy" 
-                     onerror="this.src='img/placeholder.jpg'">
-                
-                <!-- Badges สำหรับ preorder และ sale -->
-                <div class="product-badges">
-                    ${product.preorder ? '<span class="badge preorder">ເຄື່ອງພຣີອໍເດີ້</span>' : '<span class="badge sales">ເຄື່ອງພ້ອມສົ່ງ</span>'}
-                    ${product.sale ? '<span class="badge sale">ລາຄາພິເສດ</span>' : ''}
-                  
+   productsGrid.innerHTML = productsToShow.map(product => `
+        <a href="detail.html?sku=${product.sku}" 
+           class="product-card ${product.out ? 'out-of-stock' : ''}" 
+           data-sku="${product.sku}">
+            
+            <!-- สำหรับสินค้าหมดใช้สามเหลี่ยมและตัวหนังสือใหญ่ -->
+            ${product.out ? `
+                <div class="corner-ribbon out-stock">ໝົດ</div>
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}" loading="lazy" 
+                         onerror="this.src='img/placeholder.jpg'">
+                    <div class="sold-out-overlay">
+                        <div class="sold-out-text">ໝົດແລ້ວ</div>
+                    </div>
                 </div>
-            </div>
+            ` : `
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}" loading="lazy" 
+                         onerror="this.src='img/placeholder.jpg'">
+                    <div class="product-badges">
+                        ${product.preorder ? '<span class="badge preorder">ເຄື່ອງພຣີອໍເດີ້</span>' : '<span class="badge sales">ເຄື່ອງພ້ອມສົ່ງ</span>'}
+                        ${product.sale ? '<span class="badge sale">ລາຄາພິເສດ</span>' : ''}
+                    </div>
+                </div>
+            `}
+            
+         
+            
             <div class="product-info">
                 <div class="product-category">${product.category}</div>
                 <h3 class="product-name">${product.name}</h3>
-                <p class="product-description">${product.description.substring(0, 80)}${product.description.length > 80 ? '...' : ''}</p>
+                <p class="product-description">${product.description.substring(0, 60)}${product.description.length > 60 ? '...' : ''}</p>
                 
-                <div class="product-details">
-                    <div class="price-container">
-                        <div class="product-price">
-                            ${formatPrice(product.price)} ${APP_CONFIG.CURRENCY}
-                            ${product.sale && product.originalPrice ? `
-                                <span class="original-price">
-                                    ${formatPrice(product.originalPrice)} ${APP_CONFIG.CURRENCY}
-                                </span>
-                            ` : ''}
-                        </div>
-                        ${product.sale && product.originalPrice ? `
-                            <div class="discount-badge">
-                                -${calculateDiscount(product.originalPrice, product.price)}%
-                            </div>
-                        ` : ''}
+                <div class="price-section">
+                    <div class="price-main">
+                        <span class="current-price">${formatPrice(product.price)} ກີບ</span>
+                        ${product.sale && product.originalPrice ? 
+                          `<span class="original-price">${formatPrice(product.originalPrice)}</span>` : ''}
                     </div>
-                    <div class="product-sku">SKU: ${product.sku}</div>
+                    ${product.sale && product.originalPrice && !product.out ? 
+                      `<div class="discount-tag">-${calculateDiscount(product.originalPrice, product.price)}%</div>` : ''}
                 </div>
                 
-                <!-- Stock info -->
-                <div class="stock-info-mini">
-                    ${product.preorder ? `
-                        <i class="fas fa-clock preorder-icon"></i>
-                        <span class="preorder-text">ເຄື່ອງພຣີອໍເດີ້</span>
-                    ` : `
-                        <i class="fas ${product.stock > 0 ? 'fa-check-circle success' : 'fa-times-circle error'}"></i>
-                        <span>${product.stock > 0 ? 'ເຄື່ອງພ້ອມສົ່ງ' : 'ຫມົດສິນຄ້າ'}</span>
-                        ${product.stock ? `<span class="stock-count">(${product.stock} ຊິ້ນ)</span>` : ''}
-                    `}
+                <div class="stock-info">
+                    <div class="sku">${product.sku}</div>
+                    <div class="stock-status ${product.out ? 'out' : product.preorder ? 'preorder' : 'in-stock'}">
+                        <i class="fas ${product.out ? 'fa-ban' : product.preorder ? 'fa-clock' : 'fa-check'}"></i>
+                        ${product.out ? 'ສິນຄ້າໝົດ' : 
+                          product.preorder ? 'ພຣີອໍເດີ້ 5-7 ວັນ' : 
+                          `ພ້ອມສົ່ງ ${product.stock || 0} ຊິ້ນ`}
+                    </div>
                 </div>
                 
                 <div class="product-actions">
-                    <span class="btn-detail">
-                        <i class="fas fa-info-circle"></i> ເບິ່ງລາຍລະອຽດ
+                    <span class="action-btn ${product.out ? 'out-btn' : 'in-stock-btn'}">
+                        <i class="fas ${product.out ? 'fa-eye' : 'fa-shopping-cart'}"></i>
+                        ${product.out ? 'ເບິ່ງລາຍລະອຽດ' : 'ສັ່ງຊື້'}
                     </span>
                 </div>
             </div>
