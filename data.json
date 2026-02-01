@@ -424,6 +424,42 @@
     "originalPrice": 250000
   },
   {
+    "sku": "Cara",
+    "name": "Cara ລູ້ນພິເສດສໍາລັບສາວໂຕເລັກ ຄວາມຍາວໂສ້ງ 36 ນິ້ວ",
+    "category": "ໂສ້ງ",
+    "price": 198000,
+    "sizes": [
+      "***ແທກຕາມແອວສູງກາຍສະບື 2 ນິ້ວ/ສະໂພກ (ບໍ່ຕ້ອງເພື່ອໄຊສ໌ຈ່ະ)",
+      "𝐒: ອ24-25/ສພ36",
+      "𝐌: ອ26-27/ສພ38",
+      "𝐋: ອ28-29/ສພ40",
+      "𝐗𝐋: ອ30-31/ສພ42",
+      "𝟐𝐗𝐋: ອ32-33/ສພ44",
+      "𝟑𝐗𝐋: 34-35/ສພ46"
+    ],
+    "colors": ["ດຳ", "ນໍ້າຕານໂກໂກ້", "ເທົາເຂັ້ມ", "ເທົາອ່ອນ", "ຄີມ(ຄີມອອກຂາວ)"],
+    "image": "https://lh3.googleusercontent.com/u/0/d/1I_HBg2g-2FjDqAs_fsSuQw4oN6Qg72_w",
+    "images": [
+      "https://lh3.googleusercontent.com/u/0/d/1I_HBg2g-2FjDqAs_fsSuQw4oN6Qg72_w",
+      "https://lh3.googleusercontent.com/u/0/d/1wHu9EO60g9dqhYLIe3WFPIL6b5rcLzbZ",
+      "https://lh3.googleusercontent.com/u/0/d/1BwzlnMgoT7vfh7SbKRZTyROuGaOlKRAx",
+      "https://lh3.googleusercontent.com/u/0/d/1E_7_25anT1Ui6AAxDDYqsXtkBaigmL9A",
+      "https://lh3.googleusercontent.com/u/0/d/1bARE2UXmSdGpowAUOEyyIxFv2aI9b6A_",
+      "https://lh3.googleusercontent.com/u/0/d/1zXcfHSeasgjAUvKot9nMOrXeY3KPpUVj"
+    ],
+    "description": "Cara ລູ້ນພິເສດສໍາລັບສາວໂຕເລັກ ຄວາມຍາວໂສ້ງ 36 ນິ້ວ, ຂາກະບອກກາງ ຮອງຮັບສາວອວບແອວໄດ້ເຖິງ 34-35 ນິ້ວ, ມີຂະໜາດໃຫຍ່ເຖິງ 3XL",
+    "details": [
+      "ຈຸດເດັ່ນລຸ້ນນີ້ສໍາລັບສາວໂຕເລັໃສ່ໄດ ໂດຍບໍ່ຕ້ອງຕັດປາຂາອີກ",
+      "ຄວາມຍາວໂສ້ງ 36 ນິ້ວ",
+      "ສາວສູງໃສ່ໄດ້ ຈະໄດ້ລຸກແບບເກ໋ໆ",
+      "ຜ້າດີ ບໍ່ອຶດອັດ ບໍ່ໜາໄປ ບໍ່ບາງໄປ ເນື້ອຜ້າດີແຮງ"
+    ],
+    "preorder": true,
+    "stock": 50,
+    "sale": true,
+    "originalPrice": 250000
+  },
+  {
     "sku": "K",
     "name": "ກ່ອງເກັບເຄື່ອງ ເປັນທັງຕັ່ງສະຕູ ສາມາດນັ່ງໄດ້",
     "category": "ກ່ອງເກັບເຄື່ອງ",
