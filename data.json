@@ -460,6 +460,41 @@
     "originalPrice": 250000
   },
   {
+    "sku": "D03",
+    "name": "ລຸ້ນແອວສະມັອກຫຼັງ, ຂາກະບອກກາງ, ຜ້າເປເປ້, ຟຣີໄຊສ໌-ພລັສໄຊສ໌",
+    "category": "ໂສ້ງ",
+    "price": 248000,
+    "sizes": [
+    "Size1:  ແອວ 26 - ຢືດໄດ້ຕຶງສຸດ 32, ສະໂພກ 44",
+    "Size2:  ແອວ 34 - ຢືດໄດ້ຕຶງສຸດ 40, ສະໂພກ 48",
+    "Size2:  ແອວ 38 - ຢືດໄດ້ຕຶງສຸດ 46, ສະໂພກ 56",
+    "ເປົ້າ 15, ຄວາມຍາວໂສ້ງ 41"
+    "***ແທກເປັນນິ້ວ"
+    ],
+    "colors": ["ດຳ", "ນໍ້າຕານໂກໂກ້", "ເທົາເຂັ້ມ", "ເທົາອ່ອນ", "ຄີມ(ຄີມອອກຂາວ)"],
+    "image": "https://lh3.googleusercontent.com/u/0/d/"1En8m2YfE28P-fHphjo9OWk04MyyydMxu,
+    "images": [
+      "https://lh3.googleusercontent.com/u/0/d/"1_r5CVrBl0BMsOAcmAXP-EpKtbJ4qkP9R,
+      "https://lh3.googleusercontent.com/u/0/d/"1xHIGsHPOey0c0cA_gkYKu-Ubn9-7dOSQ,
+      "https://lh3.googleusercontent.com/u/0/d/"1xHIGsHPOey0c0cA_gkYKu-Ubn9-7dOSQ,
+      "https://lh3.googleusercontent.com/u/0/d/1vCH3wnKDlBiVgyz2InwGN7wE4sIUMCAf",
+      "https://lh3.googleusercontent.com/u/0/d/1SHgN3jlZXdtt_L_yKEibtK07zc8XxUJo",
+      "https://lh3.googleusercontent.com/u/0/d/16Xoh8vUrJxVXC_PX6kCkMGUk9FXxuQeS",
+      "https://lh3.googleusercontent.com/u/0/d/1vCH3wnKDlBiVgyz2InwGN7wE4sIUMCAf",
+      "https://lh3.googleusercontent.com/u/0/d/1GF0B914MVFs5fGZjnL3SL0H5gZbizrXE",
+      "https://lh3.googleusercontent.com/u/0/d/1OQpPducE8wKcgGs7GzWfuixr7xvO7mVc"
+    ],
+    "description": "ລຸ້ນແອວສະມັອກຫຼັງ, ຂາກະບອກກາງ, ຜ້າເປເປ້",
+    "details": [
+    "ໂສ້ງພາງຫຸ່ນສາວອວບ, ໃສ່ສະບາຍ ເນື້ອຜ້້າດີຢູ່ຊົງ, ເນື້ອຜ້າບໍ່ຮ້ອນບໍ່ອັບ, ໃສ່ໄດ້ທຸກໂອກາດ",
+    "ແອວສະມັອກຫຼັງ, ຜ້າເປເປ້, ຂາກະບອກກາງ, ຟຣີໄຊສ໌-ພລັສໄຊສ໌"
+    ],
+    "preorder": true,
+    "stock": 50,
+    "sale": true,
+    "originalPrice": 350000
+  },
+  {
     "sku": "K",
     "name": "ກ່ອງເກັບເຄື່ອງ ເປັນທັງຕັ່ງສະຕູ ສາມາດນັ່ງໄດ້",
     "category": "ກ່ອງເກັບເຄື່ອງ",
