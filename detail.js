@@ -39,7 +39,7 @@ function createNotification() {
 // สร้างแกลเลอรี่รูปภาพ
 function createImageGallery(images) {
     // จำกัดรูปไม่ให้เกิน 8 รูป
-    const displayImages = images.slice(0, 8);
+    const displayImages = images.slice(0, 15);
     totalImages = displayImages.length;
     currentImageIndex = 0;
 
