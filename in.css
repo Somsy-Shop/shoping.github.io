@@ -1,5 +1,10 @@
 /* index.css - สำหรับหน้า index.html เท่านั้น */
-
+@font-face {
+    font-family: 'Hinsiew';
+    src: url('Hinsiew-SemiBold.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 /* ส่วนค้นหาและกรอง */
 .filters-section {
     background-color: var(--primary-white);
