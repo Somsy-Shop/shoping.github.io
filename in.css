@@ -60,7 +60,7 @@
     background-color: var(--primary-white);
     border-radius: 8px;
     cursor: pointer;
-    font-family: 'KomLao';
+    font-family: 'Hinsiew';
     font-weight: 500;
     transition: var(--transition);
     color: var(--dark-gray);
@@ -167,7 +167,7 @@
 }
 
 .product-name {
-    font-family: 'KomLao';
+    font-family: 'Hinsiew';
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 8px;

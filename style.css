@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-@font-face {
+/* @font-face {
     font-family: 'TikTokLao';
     src: url('fonts/Touk2-Regular.ttf') format('truetype');
     font-weight: normal;
@@ -17,6 +17,12 @@
 @font-face {
     font-family: 'KomLao';
     src: url('fonts/Kom-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+@font-face {
+    font-family: 'Hinsiew';
+    src: url('Hinsiew-SemiBold.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -275,7 +281,7 @@ footer {
     background-color: var(--primary-white);
     border-radius: 8px;
     cursor: pointer;
-    font-family: 'KomLao', sans-serif;
+    font-family: 'Hinsiew', sans-serif;
     font-weight: 500;
     transition: var(--transition);
     color: var(--dark-gray);
@@ -309,7 +315,7 @@ footer {
     background-color: var(--primary-white);
     border-radius: 8px;
     cursor: pointer;
-    font-family: 'KomLao', sans-serif;
+    font-family: 'Hinsiew', sans-serif;
     font-weight: 500;
     transition: var(--transition);
     color: var(--dark-gray);
