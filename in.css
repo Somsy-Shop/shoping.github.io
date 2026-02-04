@@ -54,6 +54,7 @@
 }
 
 .category-btn {
+    font-size: 1rem;
     padding: 10px 20px;
     border: 1px solid var(--border-gray);
     background-color: var(--primary-white);
@@ -175,7 +176,7 @@
 }
 
 .product-description {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--accent-gray);
     margin-bottom: 15px;
     line-height: 1.5;
