@@ -1,10 +1,4 @@
 /* index.css - สำหรับหน้า index.html เท่านั้น */
-@font-face {
-    font-family: 'Hinsiew';
-    src: url('Hinsiew-SemiBold.otf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 /* ส่วนค้นหาและกรอง */
 .filters-section {
     background-color: var(--primary-white);
@@ -65,7 +59,7 @@
     background-color: var(--primary-white);
     border-radius: 8px;
     cursor: pointer;
-    font-family: 'Hinsiew';
+
     font-weight: 500;
     transition: var(--transition);
     color: var(--dark-gray);
@@ -172,7 +166,7 @@
 }
 
 .product-name {
-    font-family: 'Hinsiew';
+
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 8px;

@@ -42,7 +42,7 @@
 }
 
 * {
-    font-family: 'TikTokLao';
+    font-family: 'Hinsiew';
 }
 
 body {
@@ -168,7 +168,7 @@ footer {
 }
 
 .nav-logo {
-    font-family: 'TikTokLao', sans-serif;
+
     font-weight: 800;
     font-size: 1.3rem;
     color: var(--dark-gray);
@@ -193,7 +193,7 @@ footer {
     position: relative;
     transition: var(--transition);
     padding: 0.5rem 0;
-    font-family: 'TikTokLao', sans-serif;
+
     font-size: 1rem;
     text-decoration: none;
     cursor: pointer;
@@ -281,7 +281,7 @@ footer {
     background-color: var(--primary-white);
     border-radius: 8px;
     cursor: pointer;
-    font-family: 'Hinsiew', sans-serif;
+
     font-weight: 500;
     transition: var(--transition);
     color: var(--dark-gray);
@@ -315,7 +315,7 @@ footer {
     background-color: var(--primary-white);
     border-radius: 8px;
     cursor: pointer;
-    font-family: 'Hinsiew', sans-serif;
+
     font-weight: 500;
     transition: var(--transition);
     color: var(--dark-gray);
