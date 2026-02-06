@@ -327,7 +327,6 @@ function renderProductDetail() {
                     <div class="product-badges-detail">
                         ${isOutOfStock ? '<span class="badge out-stock-detail"><i class="fas fa-ban"></i> ໝົດສິນຄ້າ</span>' : ''}
                         ${!isOutOfStock && currentProduct.preorder ? '<span class="badge preorder"><i class="fas fa-clock"></i> ພຣີອໍເດີ້</span>' : ''}
-                        ${!isOutOfStock && currentProduct.sale ? `<span class="badge sale"><i class="fas fa-tag"></i> ລາຄາພິເສດ</span>` : ''}
                     </div>
                     
                     <div class="detail-category">${currentProduct.category || 'ບໍ່ມີຂໍ້ມູນ'}</div>

@@ -189,7 +189,6 @@ function renderProducts() {
                          onerror="this.src='img/placeholder.jpg'">
                     <div class="product-badges">
                         ${product.preorder ? '<span class="badge preorder">ເຄື່ອງພຣີອໍເດີ້</span>' : '<span class="badge sales">ເຄື່ອງພ້ອມສົ່ງ</span>'}
-                        ${product.sale ? '<span class="badge sale">ລາຄາພິເສດ</span>' : ''}
                     </div>
                 </div>
             `}
