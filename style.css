@@ -439,57 +439,122 @@ footer {
     }
 
     .nav-logo {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        max-width: 70%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
-    
-    .nav-logo i {
+
+    .nav-logo img {
+        width: 24px !important;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    header {
+        padding: 15px 0 12px;
+        margin-bottom: 20px;
+    }
+
+    .logo h1 {
         font-size: 1.3rem;
     }
-    
-    .container {
-        padding: 0 15px;
+
+    .logo img {
+        width: 40px !important;
     }
-    
-    .logo h1 {
-        font-size: 1.5rem;
+
+    .tagline {
+        font-size: 0.85rem;
     }
-    
+
+    .notification {
+        bottom: 15px;
+        right: 15px;
+        left: 15px;
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+
     .pagination {
         flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 25px;
     }
-    
+
     .page-numbers {
         order: 2;
         width: 100%;
         justify-content: center;
-        margin: 10px 0;
+        margin: 5px 0;
     }
-    
+
     .page-btn {
         order: 1;
+        padding: 6px 12px;
+        font-size: 0.9rem;
     }
-    
+
+    .page-number {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
     #next-page {
         order: 3;
+    }
+
+    footer {
+        padding: 20px 0;
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 576px) {
     .nav-container {
-        padding: 0.8rem 15px;
+        padding: 0.8rem 12px;
     }
-    
+
     .nav-menu {
         width: 280px;
+    }
+
+    .nav-logo {
+        font-size: 0.85rem;
+    }
+
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+
+    body {
+        padding-top: 60px;
     }
 }
 
 @media (max-width: 400px) {
     .nav-container {
-        padding: 0.8rem 15px;
+        padding: 0.7rem 10px;
     }
-    
+
     .nav-menu {
-        width: 280px;
+        width: 260px;
+    }
+
+    .nav-logo {
+        font-size: 0.8rem;
+        max-width: 65%;
+    }
+
+    .logo h1 {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0 8px;
     }
 }
