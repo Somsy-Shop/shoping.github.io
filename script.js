@@ -23,6 +23,7 @@ const pagination = document.getElementById("pagination");
 const prevPageBtn = document.getElementById("prev-page");
 const nextPageBtn = document.getElementById("next-page");
 const pageNumbers = document.getElementById("page-numbers");
+const productsSection = document.querySelector(".products-section");
 
 // Notification Elements
 let notification = null;
@@ -291,6 +292,20 @@ function applyFilters(searchTerm = '') {
     updateProductCount();
 }
 
+// เลื่อนไปด้านบนของส่วนรายการสินค้าเมื่อเปลี่ยนหน้า
+function scrollToProductsTop() {
+    if (!productsSection) return;
+
+    const navbar = document.querySelector(".navbar");
+    const navbarHeight = navbar ? navbar.offsetHeight : 0;
+    const targetTop = productsSection.getBoundingClientRect().top + window.scrollY - navbarHeight - 12;
+
+    window.scrollTo({
+        top: Math.max(targetTop, 0),
+        behavior: 'smooth'
+    });
+}
+
 // แสดง Pagination
 function renderPagination() {
     totalPages = Math.ceil(filteredProducts.length / APP_CONFIG.ITEMS_PER_PAGE);
@@ -323,6 +338,7 @@ function renderPagination() {
         pageBtn.addEventListener('click', () => {
             currentPage = i;
             renderProducts();
+            scrollToProductsTop();
         });
         pageNumbers.appendChild(pageBtn);
     }
@@ -350,6 +366,7 @@ function initializeEventListeners() {
         if (currentPage > 1) {
             currentPage--;
             renderProducts();
+            scrollToProductsTop();
         }
     });
     
@@ -357,6 +374,7 @@ function initializeEventListeners() {
         if (currentPage < totalPages) {
             currentPage++;
             renderProducts();
+            scrollToProductsTop();
         }
     });
     
