@@ -383,7 +383,7 @@ footer {
 .btn-order-detail {
     flex: 1;
     padding: 15px 30px;
-    background-color: rgb(48, 49, 51);
+    background-color: #e80d5a;
     border: none;
     border-radius: 8px;
     color: var(--primary-white);
@@ -402,7 +402,7 @@ footer {
 }
 
 .btn-order-detail.disabled {
-    background-color: #6c757d;
+    background-color: #e80d5a;
     cursor: not-allowed;
 }
 
