@@ -1,32 +1,5 @@
 [
   {
-    "sku": "SSS25",
-    "name": "ຊຸດເດຣສ ຄໍປົກທູໂທນ ໄຊສ໌ສຳລັບສາວອວບ",
-    "category": "ຊຸດເດຣສ",
-    "price": 295000,
-    "sizes": [ "L", "XL","2XL",
-    ],
-    "details": [
-    "L= ຮອບເອິກ 40-46/ສະໂພກ60/ຍາວ40/ລາຄາ: 295000",
-    "XL= ຮອບເອິກ 46-56/ສະໂພກ80/ຍາວ41/ລາຄາ 310000",
-    "2XL= ຮອບເອິກ 56-60/ສະໂພກ88/ຍາວ42ລາຄາ: 325000"
-    ],
-    "colors": ["ດຳ", "ນໍ້າຕານ", "ຄີມ", "ຟ້າ", "ກົມ", "ບົວ", "ຂຽວ"],
-    "image": "https://drive.google.com/file/d/1-BceCo-l5fibxbSpd7RtcJfDRb2XnIxk",
-    "images": [
-      "https://drive.google.com/file/d/1-BceCo-l5fibxbSpd7RtcJfDRb2XnIxk",
-      "https://drive.google.com/file/d/12EZw6N2sWXLouYvfsM8FCu-bspIFD5en",
-      "https://drive.google.com/file/d/1CMRafDXiQSxQdOD3nTbioPOM2ZKVUdpf",
-      "https://drive.google.com/file/d/1Hp-EZzB18ytaJx28A_bFVfj3IWFZoaVD",
-      "https://drive.google.com/file/d/1vSk74fWJlnEk8dp8yQnhH6JoePGnBn90"
-    ],
-    "description": "ກະດຸມໜ້າປົດໄດ້, ສະມັອກແອວດ້ານຫຼັງພ້ອມເຊືອກຜູກ, ຜ້າບາບີ້ L XL 2XL ຮອບເອິກ 40-60ນິ້ວ",
-    "preorder": true,
-    "stock": 0,
-    "sale":  false,
-    "originalPrice": 350000
-  },
-  {
     "sku": "CGH",
     "name": "CGH ໂສ້ງຢືດສາວອວບ ຜ້າວູນເວບ, ໄຊສ໌ໃຫຍ່(ເປັນຟຣີໄຊສ໌), ແອວສູງ, ຂາກະບອກໃຫຍ່",
     "category": "ໂສ້ງ",
