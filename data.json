@@ -1,4 +1,32 @@
 [
+   {
+    "sku": "111",
+    "name": "ຊຸດເຊັດສາວອວບ ເສື້ອ+ໂສ້ງ",
+    "category": "ຊຸດເຊັດສາວອວບ",
+    "price": 255000,
+    "sizes": [
+      "ເສື້ອຮອບເອິກ 36-44 ນິ້ວ",
+      "ໂສ້ງແອວສະມັອກຫຼັງ 32-40 ນິ້ວ",
+      "ສະໂພກຂໍບໍ່ເກີນ 50 ນິ້ວ",
+      "***ສັດສ່ວນໃຫ້ແທກເປັນນິ້ວ"
+    ],
+    "colors": ["ດຳ", "ຄີມລາຍຈຸດ"],
+    "image": "https://drive.google.com/file/d/1h4rU8pnKqE3MxM2b87wkDS9gbkxR2w4X",
+    "images": [
+      "https://drive.google.com/file/d/1Evpk5E67J3RZg8-ZFCM7q8Z1rT_n_HgJ",
+      "https://drive.google.com/file/d/1VVt2jOaihsxU8FfpwnbZIhn7KmlYP4SN"
+    ],
+    "description": "ຊຸດເຊັດສາວອວບ ເສື້ອ+ໂສ້ງ",
+    "details": [
+      "ເສື້ອຮອບເອິກ 36-44 ນິ້ວ ຊິບໜ້າຮູດປັບລະດັບຄວາມເຊັກຊີ້ໄດ້ເລີຍຈ່ະ",
+      "ໂສ້ງແອວສະມັອກຫຼັງ 32-40 ນິ້ວ",
+      "ສະໂພກຂໍບໍ່ເກີນ 50 ນິ້ວ"
+    ],
+    "preorder": false,
+    "stock": 7,
+    "sale": true,
+    "originalPrice": 299000
+  },
   {
     "sku": "CGH",
     "name": "CGH ໂສ້ງຢືດສາວອວບ ຜ້າວູນເວບ, ໄຊສ໌ໃຫຍ່(ເປັນຟຣີໄຊສ໌), ແອວສູງ, ຂາກະບອກໃຫຍ່",
